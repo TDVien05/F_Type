@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class RepeatBg : MonoBehaviour
 {
-    private BoxCollider2D myCollider2D;
+    private BoxCollider2D collider2D;
     private Rigidbody2D rb;
     private float height;
     public float speed = -3f;
     // Start is called before the first frame update
     void Start()
     {
-        myCollider2D = GetComponent<BoxCollider2D>();
+        collider2D = GetComponent<BoxCollider2D>();
         rb = GetComponent<Rigidbody2D>();
 
-        height = myCollider2D.size.y;
+        height = collider2D.size.y;
         rb.velocity = new Vector2(0, speed);
     }
 

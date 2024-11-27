@@ -6,11 +6,11 @@ public class BulletController : MonoBehaviour
 {
     public float speed;
     public Rigidbody2D rb;
-    private Camera myCamera;
+    private Camera camera;
 
     void Start()
     {
-        myCamera = Camera.main;
+        camera = Camera.main;
     }
     // Update is called once per frame
     void Update()
