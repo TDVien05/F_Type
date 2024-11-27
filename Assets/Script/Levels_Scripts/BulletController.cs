@@ -6,11 +6,11 @@ public class BulletController : MonoBehaviour
 {
     public float speed;
     public Rigidbody2D rb;
-    private Camera camera;
+    private Camera myCamera;
 
     void Start()
     {
-        camera = Camera.main;
+        myCamera = Camera.main;
     }
     // Update is called once per frame
     void Update()
@@ -20,7 +20,7 @@ public class BulletController : MonoBehaviour
             rb.velocity = new Vector2(0, speed);
         }
 
-        Vector3 viewPortPos = camera.WorldToViewportPoint(transform.position);
+        Vector3 viewPortPos = myCamera.WorldToViewportPoint(transform.position);
 
         if (viewPortPos.y < 0 || viewPortPos.y > 1.1)
         {
