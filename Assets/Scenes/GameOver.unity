@@ -268,6 +268,7 @@ GameObject:
   - component: {fileID: 403937626}
   - component: {fileID: 403937625}
   - component: {fileID: 403937624}
+  - component: {fileID: 403937627}
   m_Layer: 5
   m_Name: PlayPage
   m_TagString: Untagged
@@ -339,9 +340,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1716247573}
+      - m_Target: {fileID: 403937627}
         m_TargetAssemblyTypeName: changeScene, Assembly-CSharp
-        m_MethodName: PlayPage
+        m_MethodName: change
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -389,6 +390,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 403937622}
   m_CullTransparentMesh: 1
+--- !u!114 &403937627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403937622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1703cbabf0647f24499427276c10e9eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: ModePlay
 --- !u!1 &722377571
 GameObject:
   m_ObjectHideFlags: 0
@@ -1180,6 +1194,7 @@ GameObject:
   - component: {fileID: 1390267302}
   - component: {fileID: 1390267301}
   - component: {fileID: 1390267300}
+  - component: {fileID: 1390267303}
   m_Layer: 5
   m_Name: ExitGame
   m_TagString: Untagged
@@ -1251,8 +1266,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1716247573}
-        m_TargetAssemblyTypeName: changeScene, Assembly-CSharp
+      - m_Target: {fileID: 1390267303}
+        m_TargetAssemblyTypeName: Quit, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
@@ -1301,6 +1316,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1390267298}
   m_CullTransparentMesh: 1
+--- !u!114 &1390267303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390267298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5216b51c5b1372d448295f8207a908a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1430565444
 GameObject:
   m_ObjectHideFlags: 0
@@ -1744,6 +1771,7 @@ GameObject:
   - component: {fileID: 1944491814}
   - component: {fileID: 1944491813}
   - component: {fileID: 1944491812}
+  - component: {fileID: 1944491815}
   m_Layer: 5
   m_Name: MenuPage
   m_TagString: Untagged
@@ -1815,9 +1843,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1716247573}
+      - m_Target: {fileID: 1944491815}
         m_TargetAssemblyTypeName: changeScene, Assembly-CSharp
-        m_MethodName: MenuPage
+        m_MethodName: change
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1865,6 +1893,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1944491810}
   m_CullTransparentMesh: 1
+--- !u!114 &1944491815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944491810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1703cbabf0647f24499427276c10e9eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Menu
 --- !u!1 &2030766586
 GameObject:
   m_ObjectHideFlags: 0

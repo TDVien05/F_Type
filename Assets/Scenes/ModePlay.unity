@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 83914106}
   - component: {fileID: 83914105}
   - component: {fileID: 83914104}
+  - component: {fileID: 83914107}
   m_Layer: 5
   m_Name: Model60S
   m_TagString: Untagged
@@ -205,9 +206,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 674667284}
+      - m_Target: {fileID: 83914107}
         m_TargetAssemblyTypeName: changeScene, Assembly-CSharp
-        m_MethodName: Model60
+        m_MethodName: change
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -255,6 +256,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 83914102}
   m_CullTransparentMesh: 1
+--- !u!114 &83914107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83914102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1703cbabf0647f24499427276c10e9eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: 60s
 --- !u!1 &284844740
 GameObject:
   m_ObjectHideFlags: 0
@@ -950,6 +964,7 @@ GameObject:
   - component: {fileID: 1374861891}
   - component: {fileID: 1374861890}
   - component: {fileID: 1374861889}
+  - component: {fileID: 1374861892}
   m_Layer: 5
   m_Name: Model30S
   m_TagString: Untagged
@@ -1021,9 +1036,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 674667284}
+      - m_Target: {fileID: 1374861892}
         m_TargetAssemblyTypeName: changeScene, Assembly-CSharp
-        m_MethodName: Model30
+        m_MethodName: change
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1071,6 +1086,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1374861887}
   m_CullTransparentMesh: 1
+--- !u!114 &1374861892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374861887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1703cbabf0647f24499427276c10e9eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: 30s
 --- !u!1 &1392707857
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,6 +1111,7 @@ GameObject:
   - component: {fileID: 1392707861}
   - component: {fileID: 1392707860}
   - component: {fileID: 1392707859}
+  - component: {fileID: 1392707862}
   m_Layer: 5
   m_Name: ModelUL
   m_TagString: Untagged
@@ -1154,9 +1183,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 674667284}
+      - m_Target: {fileID: 1392707862}
         m_TargetAssemblyTypeName: changeScene, Assembly-CSharp
-        m_MethodName: ModelUnlimit
+        m_MethodName: change
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1204,6 +1233,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1392707857}
   m_CullTransparentMesh: 1
+--- !u!114 &1392707862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1392707857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1703cbabf0647f24499427276c10e9eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Unlimitted
 --- !u!1 &1453440303
 GameObject:
   m_ObjectHideFlags: 0
@@ -1434,6 +1476,7 @@ GameObject:
   - component: {fileID: 1776915484}
   - component: {fileID: 1776915483}
   - component: {fileID: 1776915482}
+  - component: {fileID: 1776915485}
   m_Layer: 5
   m_Name: Cancel
   m_TagString: Untagged
@@ -1505,9 +1548,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 674667284}
+      - m_Target: {fileID: 1776915485}
         m_TargetAssemblyTypeName: changeScene, Assembly-CSharp
-        m_MethodName: Cancel
+        m_MethodName: change
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1555,6 +1598,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1776915480}
   m_CullTransparentMesh: 1
+--- !u!114 &1776915485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776915480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1703cbabf0647f24499427276c10e9eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: GameOver
 --- !u!1 &1943572163
 GameObject:
   m_ObjectHideFlags: 0
