@@ -20,7 +20,7 @@ public class BulletController : MonoBehaviour
             rb.velocity = new Vector2(0, speed);
         }
 
-        Vector3 viewPortPos = myCamera.WorldToViewportPoint(transform.position);
+        Vector3 viewPortPos = camera.WorldToViewportPoint(transform.position);
 
         if (viewPortPos.y < 0 || viewPortPos.y > 1.1)
         {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class scrollingBackround : MonoBehaviour
+public class ScrollingBackround : MonoBehaviour
 {
     public float speed;
 
