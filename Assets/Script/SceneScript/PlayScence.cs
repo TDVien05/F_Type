@@ -16,10 +16,10 @@ public class PlayScence : MonoBehaviour
             Debug.Log("Content of file: " + level);
             switch (level)
             {
-                case "TEXT":
+                case "30S":
                     SceneManager.LoadScene("30s");
                     break;
-                case "NORMAL":
+                case "60S":
                     SceneManager.LoadScene("60s");
                     break;
                 case "FAILURE":
@@ -29,6 +29,7 @@ public class PlayScence : MonoBehaviour
         }
         else
         {
+            SceneManager.LoadScene("30s");
             Debug.Log("File does not exits: " + filePath);
         }
     }
