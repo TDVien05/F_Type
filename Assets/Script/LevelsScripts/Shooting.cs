@@ -14,7 +14,9 @@ public class Shooting : MonoBehaviour
             if(Input.inputString.Length > 0)
             {
                 Debug.Log("key pressed: " + Input.inputString);
-                Shoot();
+                string key = Input.inputString;
+                if(!key.Equals("a") && !key.Equals("s") && !key.Equals("d") && !key.Equals("w") )
+                    Shoot();
             }
         }
             

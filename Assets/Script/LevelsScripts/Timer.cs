@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.IO;
 public class Timer : MonoBehaviour
 {
     public float time;
@@ -62,6 +63,25 @@ public class Timer : MonoBehaviour
             {
                 firePointScript.enabled = false;
             }
+
+
+            ChangeScene timeOver = FindObjectOfType<ChangeScene>();
+            if (timeOver != null) 
+            {
+                timeOver.change();
+            }
+
+            SaveCurrentScore();
         }
+    }
+    private void SaveCurrentScore()
+    {
+        Score currentScore = FindObjectOfType<Score>();
+        if (currentScore != null)
+        {
+            File.WriteAllText("DB\\CurrentScore.txt", currentScore.GetScore().ToString());
+            Debug.Log("Save current score: " + currentScore.GetScore());
+        }
+
     }
 }

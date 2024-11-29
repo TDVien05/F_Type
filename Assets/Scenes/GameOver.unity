@@ -1429,6 +1429,7 @@ GameObject:
   - component: {fileID: 944442022}
   - component: {fileID: 944442024}
   - component: {fileID: 944442023}
+  - component: {fileID: 944442025}
   m_Layer: 5
   m_Name: HiPoint
   m_TagString: Untagged
@@ -1552,6 +1553,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944442021}
   m_CullTransparentMesh: 1
+--- !u!114 &944442025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944442021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24dbb66fd0de3464cbf74fa72ce4029b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 944442023}
 --- !u!1 &963583443
 GameObject:
   m_ObjectHideFlags: 0
@@ -1697,6 +1711,7 @@ GameObject:
   - component: {fileID: 1041485439}
   - component: {fileID: 1041485441}
   - component: {fileID: 1041485440}
+  - component: {fileID: 1041485442}
   m_Layer: 5
   m_Name: YoPoint
   m_TagString: Untagged
@@ -1820,6 +1835,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1041485438}
   m_CullTransparentMesh: 1
+--- !u!114 &1041485442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041485438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df7527774d58fc645a5b87b464aa5d5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 1041485440}
 --- !u!1 &1120945087
 GameObject:
   m_ObjectHideFlags: 0
