@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fire : MonoBehaviour
+public class Shooting : MonoBehaviour
 {
     public GameObject bullet;
     public Transform firePoint;
@@ -14,7 +14,9 @@ public class Fire : MonoBehaviour
             if(Input.inputString.Length > 0)
             {
                 Debug.Log("key pressed: " + Input.inputString);
-                Shoot();
+                string key = Input.inputString;
+                if(!key.Equals("a") && !key.Equals("s") && !key.Equals("d") && !key.Equals("w") )
+                    Shoot();
             }
         }
             

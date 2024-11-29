@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.IO;
 public class Timer : MonoBehaviour
 {
     public float time;
@@ -32,8 +33,9 @@ public class Timer : MonoBehaviour
         Debug.Log("End");
         GameObject bg1 = GameObject.Find("Bg1");
         GameObject bg2 = GameObject.Find("Bg2");
+        GameObject firePoint = GameObject.Find("FirePoint");
 
-        if (bg1 != null && bg2 != null)
+        if (bg1 != null && bg2 != null && firePoint != null)
         {
             RepeatBg rbg = bg1.GetComponent<RepeatBg>();
             if (rbg != null)
@@ -56,8 +58,30 @@ public class Timer : MonoBehaviour
                 }
             }
 
-        }
+            Shooting firePointScript = firePoint.GetComponent<Shooting>();
+            if (firePointScript != null)
+            {
+                firePointScript.enabled = false;
+            }
 
+
+            ChangeScene timeOver = FindObjectOfType<ChangeScene>();
+            if (timeOver != null) 
+            {
+                timeOver.change();
+            }
+
+            SaveCurrentScore();
+        }
+    }
+    private void SaveCurrentScore()
+    {
+        Score currentScore = FindObjectOfType<Score>();
+        if (currentScore != null)
+        {
+            File.WriteAllText("DB\\CurrentScore.txt", currentScore.GetScore().ToString());
+            Debug.Log("Save current score: " + currentScore.GetScore());
+        }
 
     }
 }
