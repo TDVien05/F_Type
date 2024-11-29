@@ -5,7 +5,7 @@ using TMPro;
 using System.IO;
 using System;
 
-public class HighesScore : MonoBehaviour
+public class HighestScore : MonoBehaviour
 {
     public TMP_Text text;
     int highestScore;
