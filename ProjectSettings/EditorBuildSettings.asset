@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelMenu.unity
     guid: 362ceedbc623f864d96bec93f40ff60e
   - enabled: 1
+    path: Assets/Scenes/ModePlay.unity
+    guid: 2b48d7e631b76f44392a97be3c47e92b
+  - enabled: 1
     path: Assets/Scenes/30s.unity
     guid: c8788263e5055eb4da8352cd03744631
   - enabled: 1

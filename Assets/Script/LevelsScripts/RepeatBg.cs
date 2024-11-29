@@ -29,7 +29,7 @@ public class RepeatBg : MonoBehaviour
 
     private void Reposition()
     {
-        Vector2 vector = new Vector2(0, height*2f - 1);
+        Vector2 vector = new Vector2(0, height*2f -1);
         transform.position = (Vector2)transform.position + vector; 
     }
 }
