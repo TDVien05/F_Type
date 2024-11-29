@@ -12,18 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelMenu.unity
     guid: 362ceedbc623f864d96bec93f40ff60e
   - enabled: 1
-    path: Assets/Scenes/60s.unity
-    guid: e813005cae9b0e048829f84a28a8cbe9
-  - enabled: 1
     path: Assets/Scenes/30s.unity
     guid: c8788263e5055eb4da8352cd03744631
   - enabled: 1
+    path: Assets/Scenes/60s.unity
+    guid: e813005cae9b0e048829f84a28a8cbe9
+  - enabled: 1
     path: Assets/Scenes/Unlimitted.unity
     guid: 1d8d2bffb5cf23b4f81ec9e0cee64afe
-  - enabled: 1
-    path: Assets/Scenes/GameOver.unity
-    guid: 0103cc67f4c6fb14b962e05f56b04df9
-  - enabled: 1
-    path: Assets/Scenes/ModePlay.unity
-    guid: 2b48d7e631b76f44392a97be3c47e92b
   m_configObjects: {}
