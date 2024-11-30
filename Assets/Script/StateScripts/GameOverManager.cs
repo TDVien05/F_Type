@@ -19,12 +19,6 @@ public class GameOverManager : MonoBehaviour
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            // Goi ham kiem tra neu ke dich va cham 
-            CheckEnemyCollision(other);
-        }
-
-        void CheckEnemyCollision(Collider2D other)
-        {
             // kiem tra tag 'Enemy' cua doi tuong va cham
             if (other.CompareTag("Enemy"))
             {
@@ -49,7 +43,7 @@ public class GameOverManager : MonoBehaviour
 
     private void GameOver()
         {
-            // Chờ một 1s trước khi chuyển cảnh
+            // Chờ một 1 thoi gian trước khi chuyển cảnh
             Invoke("LoadGameOverScene", 1f);
         }
 
