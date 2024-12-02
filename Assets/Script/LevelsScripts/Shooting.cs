@@ -6,9 +6,12 @@ public class Shooting : MonoBehaviour
 {
     public GameObject bullet;
     public Transform firePoint;
+
     // Update is called once per frame
     void Update()
     {
+        // input controller
+        // avoid nest if
         if(Input.anyKey)
         {
             if(Input.inputString.Length > 0)
@@ -24,6 +27,9 @@ public class Shooting : MonoBehaviour
 
     private void Shoot()
     {
+        BulletController controller = bullet.GetComponent<BulletController>();
+
         Instantiate(bullet, firePoint.position, firePoint.rotation);
+        
     }
 }
