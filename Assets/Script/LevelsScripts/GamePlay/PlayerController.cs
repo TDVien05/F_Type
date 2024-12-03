@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
             string key = Input.inputString;
             if (ObstacleMap.ContainsKey(key))
             {
-                // if the key mapped in dictionary and still exist
+                // if the key is mapped in dictionary and still exist
                 if (Exist(key))
                 {
                     Vector2 direction = (Vector2)ObstacleMap[key].transform.position - (Vector2)player.transform.position;
@@ -52,17 +52,17 @@ public class PlayerController : MonoBehaviour
                     float angle = Vector2.Angle(player.transform.up, direction);
                     Debug.Log(angle);
 
-                    // change the angle on the right side
+                    //// change the angle on the right side
                     if (ObstacleMap[key].transform.position.x > 0)
                         if (ObstacleMap[key].transform.position.x > prevPosition.x)
                             angle *= -1;
 
                     // change the angle on the left side
                     if (ObstacleMap[key].transform.position.x < 0)
-                         if (ObstacleMap[key].transform.position.x > prevPosition.x)
+                        if (ObstacleMap[key].transform.position.x > prevPosition.x)
                             angle *= -1;
 
-                    
+
                     // Rotate the player according to calculated angle
                     player.transform.Rotate(0.0f, 0.0f, angle, Space.Self);
                     prevPosition = ObstacleMap[key].transform.position;

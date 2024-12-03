@@ -41,8 +41,10 @@ public class ObstacleController : MonoBehaviour
    
     private void ChangePosition()
     {
-        Vector3 currentPosition = this.transform.position;
-        currentPosition.x *= 10;
-        this.transform.position = currentPosition;
+        Vector3 newPosition = this.transform.position;
+        newPosition.x *= 10;
+        newPosition.y *= -10;
+
+        this.transform.position = newPosition;
     }
 }
