@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletCollider : MonoBehaviour
+public class ObstacleController : MonoBehaviour
 {
     public float heal = 100f;
     public float damage = 50f;
 
+
+    public float GetHeal() { return heal; }
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("bullet"))
@@ -25,14 +27,22 @@ public class BulletCollider : MonoBehaviour
         }
     }
 
+    // if the obstacle die, change its position outside of the camera view
     private void Die()
     {
-        Destroy(gameObject);
+        ChangePosition();
         Score score = FindObjectOfType<Score>();
         if (score != null) 
         {
             score.UpdateScore(1);
         }
-
+         
+    }
+   
+    private void ChangePosition()
+    {
+        Vector3 currentPosition = this.transform.position;
+        currentPosition.x *= 10;
+        this.transform.position = currentPosition;
     }
 }

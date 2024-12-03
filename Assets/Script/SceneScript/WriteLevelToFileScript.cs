@@ -13,7 +13,7 @@ public class WriteLevelToFileScript : MonoBehaviour
 
     public void SaveButtonTextToFile()
     {
-        filePath = Path.Combine(Application.persistentDataPath, "Level.txt");
+        filePath = "DB\\Level.txt";
 
         if (button != null)
         {
