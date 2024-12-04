@@ -45,34 +45,24 @@ public class PlayerController : MonoBehaviour
                 // if the key is mapped in dictionary and still exist
                 if (Exist(key))
                 {
-                    Vector2 direction = (Vector2)ObstacleMap[key].transform.position - (Vector2)player.transform.position;
-
                     // Calculate the angle between player object 
                     // and target object
-                    float angle = Vector2.Angle(player.transform.up, direction);
+                    float angle = GetAngle((Vector2)player.transform.position, (Vector2)ObstacleMap[key].transform.position, prevPosition);
                     Debug.Log(angle);
-
-                    //// change the angle on the right side
-                    if (ObstacleMap[key].transform.position.x > 0)
-                        if (ObstacleMap[key].transform.position.x > prevPosition.x)
-                            angle *= -1;
-
-                    // change the angle on the left side
-                    if (ObstacleMap[key].transform.position.x < 0)
-                        if (ObstacleMap[key].transform.position.x > prevPosition.x)
-                            angle *= -1;
-
 
                     // Rotate the player according to calculated angle
                     player.transform.Rotate(0.0f, 0.0f, angle, Space.Self);
                     prevPosition = ObstacleMap[key].transform.position;
                     Shoot();
-                }else
+                }
+                else
                 {
                     Debug.Log($"Remove obstacle {key} from dictionary");
-                    ObstacleMap.Remove(key);    
+                    ObstacleMap.Remove(key);
                 }
             }
+            else
+                Debug.Log($"Obstacle {key} does not exist in dictionary");
         }
     }
 
@@ -115,6 +105,22 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    private float GetAngle(Vector2 playerPosition, Vector2 targetPosition, Vector3 prevPosition)
+    {
+        Vector2 direction = targetPosition - playerPosition;
+        float angle = Vector2.Angle(player.transform.up, direction);
+
+        /// change the angle on the right side
+        if (targetPosition.x > 0)
+            if (targetPosition.x > prevPosition.x)
+                angle *= -1;
+
+        // change the angle on the left side
+        if (targetPosition.x < 0)
+            if (targetPosition.x > prevPosition.x)
+                angle *= -1;
+        return angle;
+    }
     private void Shoot()
     {
         Instantiate(bullet, firePoint.position, firePoint.rotation);

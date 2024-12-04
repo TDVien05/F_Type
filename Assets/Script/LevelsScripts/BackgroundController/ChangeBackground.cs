@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System;
+using GameLogic;
 public class ChangeBackground : MonoBehaviour
 {
     private SpriteRenderer Bg1Render;
@@ -14,11 +15,12 @@ public class ChangeBackground : MonoBehaviour
     public GameObject bg1;
     public GameObject bg2;
     private string filePath;
-
+    private string settings;
+    private Player playerSetting;
     // Start is called before the first frame update
     void Start()
     {
-        filePath = "DB\\Level.txt";
+        filePath = "DB\\PlayerSetting.txt";
         Bg1Render = bg1.GetComponent<SpriteRenderer>();
         Bg2Render = bg2.GetComponent<SpriteRenderer>();
         ChangeBg();
@@ -28,8 +30,12 @@ public class ChangeBackground : MonoBehaviour
     {
         try
         {
-            string SceneName =  File.ReadAllText(filePath);
-            switch(SceneName)
+            settings =  File.ReadAllText(filePath);
+            if (settings.Length > 0) 
+            {
+                playerSetting = JsonUtility.FromJson<Player>(settings);
+            }
+            switch(playerSetting.Level)
             {
                 case "failure":
                     Bg1Render.sprite = newSprite1;
