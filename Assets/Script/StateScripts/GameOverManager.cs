@@ -4,12 +4,6 @@ using UnityEngine.SceneManagement;
 public class GameOverManager : MonoBehaviour
     {
         public GameObject player; // Tham chieu den doi tuong la nguoi choi
-        public float screenBottomY; //Y-coordinate cua day man hinh
-
-        void Start()
-        {
-            screenBottomY = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0)).y;
-        }
 
         void Update()
         {
@@ -33,7 +27,7 @@ public class GameOverManager : MonoBehaviour
 
             foreach (GameObject enemy in enemies)
             {
-                if (enemy.transform.position.y < screenBottomY)
+                if (enemy.transform.position.y <= 0)
                 {
                     GameOver();
                     return;
