@@ -6,13 +6,13 @@ public class BulletController : MonoBehaviour
 {
     public float speed;
     public Rigidbody2D rb;
-    private Camera camera;
+    private Camera cam;
 
     public GameObject FirePoint;
 
     void Start()
     {
-        camera = Camera.main;
+        cam = Camera.main;
         FirePoint = GameObject.Find("FirePoint");
         if (rb != null && FirePoint != null)
         {
@@ -23,12 +23,21 @@ public class BulletController : MonoBehaviour
     void Update()
     {
 
-        Vector3 viewPortPos = camera.WorldToViewportPoint(transform.position);
+        Vector3 viewPortPos = cam.WorldToViewportPoint(transform.position);
 
         if (viewPortPos.y < 0 || viewPortPos.y > 1.1 || viewPortPos.x < 0 || viewPortPos.x > 1)
         {
             Destroy(gameObject);
-            // Destroy bullet which is outside of the camera view
         }
     }
+    
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("obstacle"))
+        {
+           Debug.Log(other.name);
+           Destroy(gameObject);
+        }
+    }
+
 }

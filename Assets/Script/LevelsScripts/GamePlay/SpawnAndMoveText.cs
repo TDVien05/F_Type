@@ -29,6 +29,7 @@ public class SpawnAndMoveText : MonoBehaviour
     void Start()
     {
         SpawnAllTexts();
+        
     }
 
     void Update()
@@ -53,7 +54,7 @@ public class SpawnAndMoveText : MonoBehaviour
             }
         }
     }
-
+    
     void MoveTextsDown()
     {
         for (int i = 0; i < activeTexts.Count; i++)
@@ -90,16 +91,16 @@ public class SpawnAndMoveText : MonoBehaviour
 
 
     // Text prefabs nao va cham voi bullet se reset lai 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("bullet"))
-        {
-            for (int i = 0; i < activeTexts.Count; i++)
-            {
-                ResetText(i);
-            }
-        }
-    }
+    // void OnTriggerEnter(Collider other)
+    // {
+    //     if (other.CompareTag("bullet"))
+    //     {
+    //         for (int i = 0; i < activeTexts.Count; i++)
+    //         {
+    //             ResetText(i);
+    //         }
+    //     }
+    // }
 
     Color GetRandomColor()
     {
@@ -108,5 +109,29 @@ public class SpawnAndMoveText : MonoBehaviour
         float b = Random.Range(0.5f, 1f);
 
         return new Color(r, g, b);
+    }
+    
+    public List<Text> GetListWords() {return listWords;}
+
+    public Text GenerateNewText()
+    {
+        GameObject newText = Instantiate(textPrefab, canvas.transform);
+        RectTransform newTextRect = newText.GetComponent<RectTransform>();
+
+        if (newTextRect != null)
+        {
+            newTextRect.anchoredPosition = new Vector2(Random.Range(-450f, 450f), 300);
+            activeTexts.Add(newText);
+            textRects.Add(newTextRect);
+            startDelays.Add(Time.time + Random.Range(0,10) * spawnInterval); // Moi prefabs se co mot delay thoi gian roi rieng
+        }
+        Text textComponent = newText.GetComponent<Text>();
+        if (textComponent != null)
+        {
+            textComponent.text = words[Random.Range(0, words.Length)];
+            textComponent.color = GetRandomColor();
+        }
+
+        return textComponent;
     }
 }

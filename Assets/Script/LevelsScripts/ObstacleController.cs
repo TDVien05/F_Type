@@ -1,50 +1,55 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class ObstacleController : MonoBehaviour
+namespace Script.LevelsScripts
 {
-    public float heal = 100f;
-    public float damage = 50f;
-
-
-    public float GetHeal() { return heal; }
-    private void OnTriggerEnter2D(Collider2D col)
+    public class ObstacleController : MonoBehaviour
     {
-        if (col.gameObject.CompareTag("bullet"))
+        public Text text;
+        public string GetNextText()
         {
-            TakeDamage();
-            Destroy(col.gameObject);
+            string head = "";
+            if (text.text.Length > 0)
+            {
+                head = text.text.Substring(0, 1);
+            }
+            return head;
         }
-    }
 
-    private void TakeDamage()
-    {
-        heal -= damage;
-        if (heal <= 0)
+        string GetSubText()
         {
-            Die();
+            if (text.text.Length > 0)
+            {
+                return text.text.Substring(1);
+            }
+            return "";
         }
-    }
+        public string GetText() { return text.text; }
 
-    // if the obstacle die, change its position outside of the camera view
-    private void Die()
-    {
-        ChangePosition();
-        Score score = FindObjectOfType<Score>();
-        if (score != null) 
+        public void SetText(string newText)
         {
-            score.UpdateScore(1);
+            text.text = newText;
         }
-         
-    }
-   
-    private void ChangePosition()
-    {
-        Vector3 newPosition = this.transform.position;
-        newPosition.x *= 10;
-        newPosition.y *= -10;
 
-        this.transform.position = newPosition;
+        void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag("bullet"))
+            {
+                Destroy(gameObject);
+                if (GetSubText() != "")
+                {
+                    text.text = GetSubText();
+                }
+                else
+                {
+                    ChangePosition();
+                }
+            }
+        }
+
+        void ChangePosition()
+        {
+            Debug.Log("changed position");
+        }
     }
 }
