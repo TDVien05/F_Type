@@ -456,7 +456,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5272305776736901419, guid: 9bc4b118d4947b647b3ecf76225bfe40, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.62
+      value: 7.37
       objectReference: {fileID: 0}
     - target: {fileID: 5272305776736901419, guid: 9bc4b118d4947b647b3ecf76225bfe40, type: 3}
       propertyPath: m_LocalPosition.z
@@ -787,13 +787,6 @@ MonoBehaviour:
   - zenith
   numberOfTexts: 4
   spawnInterval: 1
-  positionX:
-  - -150
-  - -200
-  - -300
-  - 0
-  - 450
-  - 300
 --- !u!223 &1644588774 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 1435039094880661073, guid: 110dd1b4db58dfb4f8af24eaf86d8365, type: 3}
