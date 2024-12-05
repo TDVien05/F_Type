@@ -14,7 +14,7 @@ public class GameOverManager : MonoBehaviour
         private void OnTriggerEnter2D(Collider2D other)
         {
             // kiem tra tag 'Enemy' cua doi tuong va cham
-            if (other.CompareTag("Enemy"))
+            if (other.CompareTag("obstacle"))
             {
                 GameOver();
             }
@@ -23,7 +23,7 @@ public class GameOverManager : MonoBehaviour
     private void CheckEnemiesFalling()
         {
             // Lay tat ca doi tuong co tag "Enemy"
-            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("obstacle");
 
             foreach (GameObject enemy in enemies)
             {
@@ -38,7 +38,7 @@ public class GameOverManager : MonoBehaviour
     private void GameOver()
         {
             // Chờ một 1 thoi gian trước khi chuyển cảnh
-            Invoke("LoadGameOverScene", 1f);
+            Invoke("LoadGameOverScene", 0f);
         }
 
         private void LoadGameOverScene()

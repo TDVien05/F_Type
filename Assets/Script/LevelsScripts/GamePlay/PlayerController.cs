@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
+using UnityEngine.UI;
+
 public class PlayerController : MonoBehaviour
 {
     public float speed = 5f;
@@ -13,14 +16,14 @@ public class PlayerController : MonoBehaviour
     /// Reference to player and all obstacles on the scene
     /// </summary>
     public GameObject player;
-    private GameObject[] obstacles;
+    private List<Text> obstacles;
     private Dictionary<string, GameObject> ObstacleMap = new Dictionary<string, GameObject>();
     private Vector3 prevPosition;
     /// 
   
     public GameObject bullet;    // reference to bullet object and               
     public Transform firePoint;  // bullet respawn position
-
+    public Canvas spawnTextCanvas;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -78,19 +81,29 @@ public class PlayerController : MonoBehaviour
     /// Mapped their text and position to the dictionary
     /// </summary>
     private void LoadObstaclesDic() {
-        obstacles = GameObject.FindGameObjectsWithTag("obstacle");
-        Debug.Log("Size of obstacles: " + obstacles.Length);
-        TMP_Text text; // key for each position
-        for (int i = 0; i < obstacles.Length; i++)
+        // obstacles = GameObject.FindGameObjectsWithTag("obstacle");
+        // Debug.Log("Size of obstacles: " + obstacles.Length);
+        // TMP_Text text; // key for each position
+        // for (int i = 0; i < obstacles.Length; i++)
+        // {
+        //     text = obstacles[i].GetComponentInChildren<TMP_Text>();
+        //     if (text != null)
+        //     {
+        //         ObstacleMap.Add(text.text, obstacles[i]);
+        //     }
+        // }
+        //
+        // Debug.Log("Size of dic: " + ObstacleMap.Count);
+        SpawnAndMoveText spawnText = spawnTextCanvas.GetComponent<SpawnAndMoveText>();
+        if (spawnText != null)
         {
-            text = obstacles[i].GetComponentInChildren<TMP_Text>();
-            if (text != null)
+            obstacles = spawnText.getListWords();
+            Debug.Log(obstacles.Count);
+            foreach (Text text in obstacles)
             {
-                ObstacleMap.Add(text.text, obstacles[i]);
+                Debug.Log(text.text);
             }
         }
-
-        Debug.Log("Size of dic: " + ObstacleMap.Count);
     }
 
 

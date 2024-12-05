@@ -43,7 +43,7 @@ public class SpawnAndMoveText : MonoBehaviour
         }
     }
 
-    void SpawnSingleText()
+    void SpawnSingleText()  
     {
         GameObject newText = Instantiate(textPrefab, canvas.transform);
         RectTransform newTextRect = newText.GetComponent<RectTransform>();

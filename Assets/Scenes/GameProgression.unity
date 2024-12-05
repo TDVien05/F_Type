@@ -306,6 +306,7 @@ GameObject:
   - component: {fileID: 377360410}
   - component: {fileID: 377360409}
   - component: {fileID: 377360408}
+  - component: {fileID: 377360412}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -397,6 +398,74 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &377360412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 377360407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b31254d9a2b2b09499ed917ba28af106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPrefab: {fileID: 5869273186567605874, guid: 26c71afb14749d647869721c6eba0bc7, type: 3}
+  canvas: {fileID: 377360410}
+  fallSpeed: 50
+  words:
+  - apple
+  - banana
+  - cherry
+  - dream
+  - eagle
+  - forest
+  - garden
+  - honey
+  - island
+  - jungle
+  - kangaroo
+  - lemon
+  - mountain
+  - nebula
+  - ocean
+  - planet
+  - queen
+  - river
+  - sunshine
+  - tiger
+  - umbrella
+  - valley
+  - whale
+  - xylophone
+  - yacht
+  - zebra
+  - adventure
+  - blossom
+  - cloud
+  - diamond
+  - energy
+  - freedom
+  - galaxy
+  - horizon
+  - imagine
+  - jewel
+  - kindness
+  - lighthouse
+  - miracle
+  - nature
+  - oasis
+  - paradise
+  - quest
+  - rainbow
+  - starlight
+  - tranquility
+  - unity
+  - voyage
+  - wisdom
+  - zenith
+  numberOfTexts: 4
+  spawnInterval: 1
 --- !u!1001 &456018304
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -614,6 +683,7 @@ GameObject:
   - component: {fileID: 1004657599}
   - component: {fileID: 1004657600}
   - component: {fileID: 1004657601}
+  - component: {fileID: 1004657602}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -740,6 +810,7 @@ MonoBehaviour:
   player: {fileID: 1004657595}
   bullet: {fileID: 5401640107220391650, guid: 04bc6943030dc4446829708b57abc839, type: 3}
   firePoint: {fileID: 2091070562}
+  spawnTextCanvas: {fileID: 377360410}
 --- !u!50 &1004657601
 Rigidbody2D:
   serializedVersion: 4
@@ -767,6 +838,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1004657602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004657595}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e729b959724f9cd4b82d981267a220c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1004657595}
 --- !u!1 &1203351162
 GameObject:
   m_ObjectHideFlags: 0
@@ -1488,7 +1572,7 @@ Transform:
   m_GameObject: {fileID: 2132645876}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.47, z: -10}
+  m_LocalPosition: {x: 0, y: 4.19, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
