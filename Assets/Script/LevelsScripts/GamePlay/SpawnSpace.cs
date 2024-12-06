@@ -8,7 +8,12 @@ public class SpawnSpace : MonoBehaviour
     public Transform spawnPoint;    // Diem spawn
     public int spawnLimit = 10;      // So luong prefabs muon spawn
     private float randomX;
+    private float randomY;
 
+    private float[] spaceUnitY = new float[4]
+    {
+        1, 2, 3, 4
+    };
     private GameObject[] spawnedObjects; // Mang luu cac prefabs spawn
 
     private void Start()
@@ -25,8 +30,10 @@ public class SpawnSpace : MonoBehaviour
         for (int i = 0; i < spawnLimit; i++)
         {
             // Vi tri ngau nhien tren truc X
-            randomX = Random.Range(-9, 9);
-            Vector3 spawnPosition = new Vector3(randomX, spawnPoint.position.y, 0);
+            randomX = Random.Range(-9f, 9);
+            int index = Random.Range(0, spaceUnitY.Length);
+            randomY = spawnPoint.position.y + spaceUnitY[index]; 
+            Vector3 spawnPosition = new Vector3(randomX, randomY, 0);
 
             // Tao prefabs va luu vao mang
             GameObject spawned = Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);

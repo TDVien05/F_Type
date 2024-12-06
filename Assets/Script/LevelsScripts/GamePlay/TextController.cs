@@ -44,9 +44,11 @@ public class TextController : MonoBehaviour
     // Tao chu ngau nhien
     private string GenerateRandomWord()
     {
-        string[] randomWords = {  "a", "v", "c", "d", "e", "f", "g", "h", "i", "j",
-        "k", "l", "m", "n", "o", "p", "q", "r", "s", "t",
-        "u", "v", "w", "x", "y", "z" };
+        string[] randomWords = {   "apple", "banana", "cherry", "dream", "eagle", "forest", "garden", "honey", "island", "jungle",
+            "kangaroo", "lemon", "mountain", "nebula", "ocean", "planet", "queen", "river", "sunshine", "tiger",
+            "umbrella", "valley", "whale", "xylophone", "yacht", "zebra", "adventure", "blossom", "cloud", "diamond",
+            "energy", "freedom", "galaxy", "horizon", "imagine", "jewel", "kindness", "lighthouse", "miracle", "nature",
+            "oasis", "paradise", "quest", "rainbow", "starlight", "tranquility", "unity", "voyage", "wisdom", "zenith" };
         int randomIndex = Random.Range(0, randomWords.Length);
         return randomWords[randomIndex];
     }
