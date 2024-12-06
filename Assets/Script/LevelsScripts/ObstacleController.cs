@@ -45,6 +45,10 @@ namespace Script.LevelsScripts
                     ChangePosition();
                 }
             }
+            else if (other.CompareTag("Player"))
+            {
+                Debug.Log("Va cham voi may bay");
+            }
         }
 
         void ChangePosition()
