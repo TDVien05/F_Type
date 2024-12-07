@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+
 namespace Script.LevelsScripts
 {
     public class ObstacleController : MonoBehaviour

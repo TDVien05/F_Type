@@ -155,6 +155,7 @@ MonoBehaviour:
   objectToSpawn: {fileID: 6322524622543544599, guid: d541b6dcb8a51a74da89aad58d5b9f11, type: 3}
   spawnPoint: {fileID: 238079111}
   spawnLimit: 4
+  checkSpawnSpaceX: []
 --- !u!212 &238079110
 SpriteRenderer:
   m_ObjectHideFlags: 0

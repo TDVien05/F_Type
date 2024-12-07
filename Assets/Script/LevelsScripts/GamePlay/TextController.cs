@@ -9,15 +9,17 @@ public class TextController : MonoBehaviour
     private TextMeshPro textMesh; // Text cua prefabs
     private Vector3 startPosition;
     private List<TextMeshPro> listWords = new List<TextMeshPro>();
+    private Transform squareTransform;
+    private SpawnSpace spawnSpace = new SpawnSpace();
     private void Start()
     {
         // Lay textMeshPro tu prefabs
         textMesh = GetComponentInChildren<TextMeshPro>();
-
+        squareTransform = textMesh.transform.parent;
         if (textMesh != null)
         {
             startPosition = transform.position;
-            generateWords(textMesh);
+            GenerateWords(textMesh);
         }
     }
 
@@ -27,24 +29,32 @@ public class TextController : MonoBehaviour
         transform.Translate(Vector3.down * speed * Time.deltaTime);
         if (transform.position.y <= 0f)
         {
-            transform.position = startPosition;
-            generateWords(textMesh);
+            RandomSpace();
+            GenerateWords(textMesh);
         }
     }
 
-    public void generateWords(TextMeshPro textMesh)
+    // Tao vi tri moi sau khi va cham Bullet, ...
+    private void RandomSpace()
     {
-        // Tao tu ngau nhien
-        textMesh.text = GenerateRandomWord();
+        spawnSpace.checkSpawnSpaceX.Clear();
+        float x = spawnSpace.RanDomX();
+        float y = squareTransform.position.y;
+        squareTransform.position = new Vector3(x, y);
+        transform.position = squareTransform.position;
+    }
 
-        // Tao mau ngau nhien
+    // Tao chu v mau ngau nhien
+    public void GenerateWords(TextMeshPro textMesh)
+    {
+        textMesh.text = GenerateRandomWord();
         textMesh.color = GenerateRandomColor();
     }
 
     // Tao chu ngau nhien
     private string GenerateRandomWord()
     {
-        string[] randomWords = {   "apple", "banana", "cherry", "dream", "eagle", "forest", "garden", "honey", "island", "jungle",
+        string[] randomWords = { "apple", "banana", "cherry", "dream", "eagle", "forest", "garden", "honey", "island", "jungle",
             "kangaroo", "lemon", "mountain", "nebula", "ocean", "planet", "queen", "river", "sunshine", "tiger",
             "umbrella", "valley", "whale", "xylophone", "yacht", "zebra", "adventure", "blossom", "cloud", "diamond",
             "energy", "freedom", "galaxy", "horizon", "imagine", "jewel", "kindness", "lighthouse", "miracle", "nature",
@@ -53,7 +63,7 @@ public class TextController : MonoBehaviour
         return randomWords[randomIndex];
     }
 
-    // Tao mau ngau nhien (chi chua cac mau sang, mau toi trung back ground => kho choi)
+    // Tao mau ngau nhien (chi chua cac mau sang)
     private Color GenerateRandomColor()
     {
         float r = Random.Range(0.5f, 1f);

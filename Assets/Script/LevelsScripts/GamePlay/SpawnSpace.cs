@@ -7,20 +7,15 @@ public class SpawnSpace : MonoBehaviour
     public GameObject objectToSpawn; // Gan prefabs 
     public Transform spawnPoint;    // Diem spawn
     public int spawnLimit = 10;      // So luong prefabs muon spawn
-    private float randomX;
-    private float randomY;
-
-    private float[] spaceUnitY = new float[4]
+    public List<float> checkSpawnSpaceX = new List<float>();
+    private float[] _spaceUnitY = new float[4]
     {
         1, 2, 3, 4
     };
-    private GameObject[] spawnedObjects; // Mang luu cac prefabs spawn
+    private List<GameObject> spawnedObjects = new List<GameObject>(); // Mang luu cac prefabs spawn
 
     private void Start()
     {
-        // Tao mang bang so luong prefabs muon spawn
-        spawnedObjects = new GameObject[spawnLimit];
-
         // Ham tao cac prefabs mot lan
         SpawnAllObjects();
     }
@@ -29,29 +24,47 @@ public class SpawnSpace : MonoBehaviour
     {
         for (int i = 0; i < spawnLimit; i++)
         {
-            // Vi tri ngau nhien tren truc X
-            randomX = Random.Range(-9f, 9);
-            int index = Random.Range(0, spaceUnitY.Length);
-            randomY = spawnPoint.position.y + spaceUnitY[index]; 
-            Vector3 spawnPosition = new Vector3(randomX, randomY, 0);
-
             // Tao prefabs va luu vao mang
-            GameObject spawned = Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);
-            spawnedObjects[i] = spawned;
+            GameObject spawned = Spawn();
+            spawnedObjects.Add(spawned);
         }
 
         Debug.Log("Done spawning all objects!");
     }
 
+    public float RanDomX()
+    {
+        float randomX = Random.Range(-9f, 9);
+        do
+        {
+            if (checkSpawnSpaceX.Contains(randomX))
+            {
+                randomX = Random.Range(-9f, 9);
+            } else checkSpawnSpaceX.Add(randomX);
+        } while(checkSpawnSpaceX.Contains(randomX));
+        return randomX;
+    }
+
+    public float RanDomY()
+    {
+        int index = Random.Range(0, _spaceUnitY.Length);
+        float randomY = spawnPoint.position.y + _spaceUnitY[index];
+        return randomY;
+    }
+
+    private GameObject Spawn()
+    {
+        // Vi tri ngau nhien tren truc X (chon toi khi khong con sinh ra tai mot vi tri tren truc X)
+        float x = RanDomX();
+        float y = RanDomY();
+        Vector3 spawnPosition = new Vector3(x, y, 0);
+        GameObject gameObject = Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);
+        return gameObject;
+    }
+
     // Lay mang
     public List<GameObject> getListWords()
     {
-        if (spawnedObjects == null || spawnedObjects.Length == 0)
-        {
-            Debug.LogWarning("No objects have been spawned.");
-            return new List<GameObject>();
-        }
-
         return new List<GameObject>(spawnedObjects);
     }
 }
