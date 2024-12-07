@@ -45,8 +45,7 @@ namespace Script.LevelsScripts.GamePlay
             if (Input.anyKeyDown)
             {
                 string key = Input.inputString;
-                // CheckInputKey(key);
-                Shoot();
+                CheckInputKey(key);
             }
         }
 
@@ -80,7 +79,7 @@ namespace Script.LevelsScripts.GamePlay
 
             foreach (KeyValuePair<string, Obstacle> kvp in ObstacleMap)
             {
-                Debug.Log($"Key: {kvp.Key}, Value: {kvp.Value.Text.transform.position}");
+                Debug.Log($"Key: {kvp.Key}, Value: {kvp.Value.LeftoverText}");
             }
             Debug.Log("Number of obstacles map " + ObstacleMap.Count);
         }
@@ -88,11 +87,12 @@ namespace Script.LevelsScripts.GamePlay
 
         void CheckInputKey(string key)
         {
-            if (ObstacleMap.ContainsKey(key) && IsObjectVisible(cam, ObstacleMap[key].Text.transform))
+            if (ObstacleMap.ContainsKey(key))
             {
                 float angle = GetAngle(player.transform.position, ObstacleMap[key].Text.transform.position, prevPosition);
-                player.transform.rotation = Quaternion.Euler(0, 0, angle);
+                player.transform.Rotate(0,0,angle,Space.Self);
                 prevPosition = player.transform.position;
+                
                 Shoot();
                 if (ObstacleMap[key].HasNextText())
                 {
@@ -107,6 +107,7 @@ namespace Script.LevelsScripts.GamePlay
                 Debug.Log($"{key} not found or object out of bounds");
             }
         }
+
         void ReWordMap(string key,Obstacle obstacle)
         {
             ObstacleMap.Add(key,obstacle);
@@ -117,9 +118,8 @@ namespace Script.LevelsScripts.GamePlay
             Vector3 viewportPoint = cam.WorldToViewportPoint(obj.position);
 
             // Check if the object is within the viewport bounds
-            bool isVisible = viewportPoint.x is >= 0 and <= 1 &&
-                             viewportPoint.y is >= 0 and <= 1 &&
-                             viewportPoint.z > 0; 
+            bool isVisible = viewportPoint.x >= 0 && viewportPoint.x <= 1 &&
+                             viewportPoint.y >= 0 && viewportPoint.y <= 1;
             return isVisible;
         }
     
@@ -127,19 +127,18 @@ namespace Script.LevelsScripts.GamePlay
         private float GetAngle(Vector2 playerPosition, Vector2 targetPosition, Vector3 prevPosition)
         {
             Vector2 direction = targetPosition - playerPosition;
-            float angle = Mathf.Atan2(targetPosition.y - player.transform.position.y, 
-                targetPosition.x - player.transform.position.x) * Mathf.Rad2Deg;
+            float angle = Vector2.Angle( direction, Vector2.up);
 
 
             // change the angle on the right side
-            // if (targetPosition.x > 0)
-            //     if (targetPosition.x > prevPosition.x)
-            //         angle *= -1;
-            //
-            // // change the angle on the left side
-            // if (targetPosition.x < 0)
-            //     if (targetPosition.x > prevPosition.x)
-            //         angle *= -1;
+            if (targetPosition.x > 0)
+                if (targetPosition.x > prevPosition.x)
+                    angle *= -1;
+            
+            // change the angle on the left side
+            if (targetPosition.x < 0)
+                if (targetPosition.x > prevPosition.x)
+                    angle *= -1;
             return angle;
         }
         private void Shoot()
