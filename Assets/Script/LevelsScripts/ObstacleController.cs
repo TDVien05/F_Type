@@ -1,11 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 namespace Script.LevelsScripts
 {
     public class ObstacleController : MonoBehaviour
     {
-        public Text text;
+        public TMP_Text text;
         public string GetNextText()
         {
             string head = "";
@@ -35,19 +35,7 @@ namespace Script.LevelsScripts
         {
             if (other.CompareTag("bullet"))
             {
-                Destroy(gameObject);
-                if (GetSubText() != "")
-                {
-                    text.text = GetSubText();
-                }
-                else
-                {
-                    ChangePosition();
-                }
-            }
-            else if (other.CompareTag("Player"))
-            {
-                Debug.Log("Va cham voi may bay");
+                Debug.Log("collide with bullet by " + gameObject.name);
             }
         }
 

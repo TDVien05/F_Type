@@ -33,9 +33,9 @@ public class BulletController : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("obstacle"))
+        if (other.CompareTag($"text"))
         {
-           Debug.Log(other.name);
+           Debug.Log("bullet collide with: " + other.name);
            Destroy(gameObject);
         }
     }

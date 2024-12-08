@@ -6,10 +6,10 @@ public class SpawnSpace : MonoBehaviour
 {
     public GameObject objectToSpawn; // Gan prefabs 
     public Transform spawnPoint;    // Diem spawn
-    public int spawnLimit = 10;      // So luong prefabs muon spawn
+    public int spawnLimit = 5;      // So luong prefabs muon spawn
     private float randomX;
     private float randomY;
-
+        
     private float[] spaceUnitY = new float[4]
     {
         1, 2, 3, 4

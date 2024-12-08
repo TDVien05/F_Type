@@ -45,8 +45,10 @@ namespace Script.LevelsScripts.GamePlay
             if (Input.anyKeyDown)
             {
                 string key = Input.inputString;
-                CheckInputKey(key);
+                // CheckInputKey(key);
+                Shoot();
             }
+            
         }
 
         /// <summary>
@@ -55,33 +57,7 @@ namespace Script.LevelsScripts.GamePlay
         /// </summary>
         private void LoadObstaclesDic()
         {
-            SpawnAndMoveText spawnTexts = spawnTextCanvas.GetComponent<SpawnAndMoveText>();
-            if (spawnTexts == null) return;
-            _obstacles = spawnTexts.GetListWords();
-            foreach (Text text in _obstacles)
-            {
-                string positionKey = text.GetComponent<ObstacleController>().GetNextText();
-                while (ObstacleMap.ContainsKey(positionKey))
-                {
-                    Debug.Log(positionKey + " has been existed");
-                    Destroy(text.gameObject);
-                    Text tmp = spawnTexts.GenerateNewText();
-                    positionKey = tmp.GetComponent<ObstacleController>().GetNextText();
-                    Debug.Log(positionKey + " new key added");
-                }
-
-                ObstacleMap.Add(positionKey, new Obstacle
-                {
-                    Text = text,
-                    LeftoverText = text.text.Substring(1)
-                });
-            }
-
-            foreach (KeyValuePair<string, Obstacle> kvp in ObstacleMap)
-            {
-                Debug.Log($"Key: {kvp.Key}, Value: {kvp.Value.LeftoverText}");
-            }
-            Debug.Log("Number of obstacles map " + ObstacleMap.Count);
+           
         }
 
 
