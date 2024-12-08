@@ -8,9 +8,10 @@ public class SpawnSpace : MonoBehaviour
     public Transform spawnPoint;    // Diem spawn
     public int spawnLimit = 10;      // So luong prefabs muon spawn
     public List<float> checkSpawnSpaceX = new List<float>();
+    public List<float> checkSpawnSpaceY = new List<float>();
     private float[] _spaceUnitY = new float[4]
     {
-        1, 2, 3, 4
+        2, 3, 4, 5
     };
     private List<GameObject> spawnedObjects = new List<GameObject>(); // Mang luu cac prefabs spawn
 
@@ -49,6 +50,14 @@ public class SpawnSpace : MonoBehaviour
     {
         int index = Random.Range(0, _spaceUnitY.Length);
         float randomY = spawnPoint.position.y + _spaceUnitY[index];
+        do
+        {
+            if (checkSpawnSpaceY.Contains(randomY))
+            {
+                index = Random.Range(0, _spaceUnitY.Length);
+                randomY = spawnPoint.position.y + _spaceUnitY[index];
+            } else checkSpawnSpaceY.Add(randomY);
+        } while (checkSpawnSpaceY.Contains(randomY));
         return randomY;
     }
 

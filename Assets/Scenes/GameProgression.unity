@@ -156,6 +156,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 238079111}
   spawnLimit: 4
   checkSpawnSpaceX: []
+  checkSpawnSpaceY: []
 --- !u!212 &238079110
 SpriteRenderer:
   m_ObjectHideFlags: 0
