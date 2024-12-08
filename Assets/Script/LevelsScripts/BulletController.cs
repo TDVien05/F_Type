@@ -6,38 +6,28 @@ public class BulletController : MonoBehaviour
 {
     public float speed;
     public Rigidbody2D rb;
-    private Camera cam;
+    private Camera _cam;
 
-    public GameObject FirePoint;
+    private GameObject _firePoint;
 
     void Start()
     {
-        cam = Camera.main;
-        FirePoint = GameObject.Find("FirePoint");
-        if (rb != null && FirePoint != null)
+        _cam = Camera.main;
+        _firePoint = GameObject.Find("FirePoint");
+        if (rb != null && _firePoint != null)
         {
-            rb.velocity = (Vector2)FirePoint.transform.up * speed;
+            rb.velocity = (Vector2)_firePoint.transform.up * speed;
         }
     }
     // Update is called once per frame
     void Update()
     {
 
-        Vector3 viewPortPos = cam.WorldToViewportPoint(transform.position);
+        Vector3 viewPortPos = _cam.WorldToViewportPoint(transform.position);
 
         if (viewPortPos.y < 0 || viewPortPos.y > 1.1 || viewPortPos.x < 0 || viewPortPos.x > 1)
         {
             Destroy(gameObject);
         }
     }
-    
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag($"text"))
-        {
-           Debug.Log("bullet collide with: " + other.name);
-           Destroy(gameObject);
-        }
-    }
-
 }

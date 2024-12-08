@@ -1,12 +1,21 @@
+using System;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 namespace Script.LevelsScripts
 {
     public class ObstacleController : MonoBehaviour
     {
-        public TMP_Text text;
+        private TextMeshPro _textMesh; // text object
+        public TMP_Text text; // prefab text
+        private bool _isTyping; 
+        public TextController textController;
         
+        private void Start()
+        {
+            _isTyping = false;
+            _textMesh = GetComponentInChildren<TextMeshPro>();
+        }
+
         // return the first character of the text
         public string GetNextText()
         {
@@ -19,7 +28,7 @@ namespace Script.LevelsScripts
         }
             
         // return leftover text
-        string GetSubText()
+        public string GetSubText()
         {
             if (text.text.Length > 0)
             {
@@ -27,21 +36,24 @@ namespace Script.LevelsScripts
             }
             return "";
         }
-        public string GetText() { return text.text; }
-
         public void SetText(string newText)
         {
             text.text = newText;
         }
-
+    
+        // set typing status 
+        public void SetTyping(bool isTyping)
+        {
+            this._isTyping = isTyping;
+        }
+        
         void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.CompareTag("bullet"))
+            if (other.CompareTag("bullet") && _isTyping)
             {
-                Debug.Log("collide with bullet by " + gameObject.name);
+                Debug.Log("Collided with bullet and is typing.");
+                Destroy(other.gameObject);
             }
         }
-
-        
     }
 }

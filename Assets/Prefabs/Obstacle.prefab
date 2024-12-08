@@ -11,13 +11,13 @@ GameObject:
   - component: {fileID: 7094790419578242388}
   - component: {fileID: 9063984967398005150}
   - component: {fileID: 953526589339384477}
-  - component: {fileID: 8728162451347023011}
   - component: {fileID: 3350566217765857691}
+  - component: {fileID: 8728162451347023011}
   - component: {fileID: 1246870857290588222}
   - component: {fileID: 7838972036980228076}
   m_Layer: 0
   m_Name: text
-  m_TagString: Untagged
+  m_TagString: text
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,6 +96,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 8728162451347023011}
+  textController: {fileID: 3350566217765857691}
+--- !u!114 &3350566217765857691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4984945235144087489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a817fdccef605a4abe1eee337027a93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.2
 --- !u!114 &8728162451347023011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,19 +202,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 9063984967398005150}
   m_maskType: 0
---- !u!114 &3350566217765857691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4984945235144087489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a817fdccef605a4abe1eee337027a93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0.5
 --- !u!61 &1246870857290588222
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -283,7 +284,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3148336075500956891}
   - component: {fileID: 8111546810426200755}
-  - component: {fileID: 5763884103987212976}
   - component: {fileID: 8564183341776883740}
   m_Layer: 0
   m_Name: Obstacle
@@ -360,19 +360,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5763884103987212976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6322524622543544599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5322a887a588e24489043986b82f1f76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 8728162451347023011}
 --- !u!50 &8564183341776883740
 Rigidbody2D:
   serializedVersion: 4

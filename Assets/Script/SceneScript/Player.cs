@@ -14,16 +14,4 @@ namespace GameLogic
         public int HighScore;
         public float TypingTime;
     }
-
-    [System.Serializable]
-    public class Obstacle
-    {
-        public Text Text { get; set; }
-        public string LeftoverText { get; set; }
-
-        public bool HasNextText()
-        {
-            return LeftoverText != "";
-        }
-    }
 }

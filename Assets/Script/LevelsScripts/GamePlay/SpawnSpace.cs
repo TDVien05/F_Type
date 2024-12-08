@@ -77,7 +77,7 @@ public class SpawnSpace : MonoBehaviour
         return transform.position.y;
     }
 
-    private GameObject Spawn()
+    public GameObject Spawn()
     {
         // Vi tri ngau nhien tren truc X (chon toi khi khong con sinh ra tai mot vi tri tren truc X)
         float x = RanDomX();

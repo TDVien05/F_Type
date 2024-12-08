@@ -55,7 +55,7 @@ public class TextController : MonoBehaviour
     }
 
     // Tao vi tri moi sau khi va cham Bullet, ...
-    private void RandomSpace()
+    public void RandomSpace()
     {
         spawnSpace.checkSpawnSpaceX.Clear();
         float x = spawnSpace.RanDomX();
