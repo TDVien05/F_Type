@@ -6,6 +6,8 @@ namespace Script.LevelsScripts
     public class ObstacleController : MonoBehaviour
     {
         public TMP_Text text;
+        
+        // return the first character of the text
         public string GetNextText()
         {
             string head = "";
@@ -15,7 +17,8 @@ namespace Script.LevelsScripts
             }
             return head;
         }
-
+            
+        // return leftover text
         string GetSubText()
         {
             if (text.text.Length > 0)
@@ -39,9 +42,6 @@ namespace Script.LevelsScripts
             }
         }
 
-        void ChangePosition()
-        {
-            Debug.Log("changed position");
-        }
+        
     }
 }

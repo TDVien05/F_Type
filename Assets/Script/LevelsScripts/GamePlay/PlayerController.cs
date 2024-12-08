@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using GameLogic;
+using JetBrains.Annotations;
 using UnityEngine;
-using UnityEngine.UI;
-
+using TMPro;
 namespace Script.LevelsScripts.GamePlay
 {
     public class PlayerController : MonoBehaviour
@@ -17,25 +17,25 @@ namespace Script.LevelsScripts.GamePlay
         /// Reference to player and all obstacles on the scene
         /// </summary>
         public GameObject player;
-
-        private List<Text> _obstacles;
-        private Dictionary<string, Obstacle> ObstacleMap = new Dictionary<string, Obstacle>();
-        private Vector3 prevPosition;
+        public GameObject baseOject;
+        private List<GameObject> _obstacles;
+        private Dictionary<string, TextMeshPro> ObstacleMap = new Dictionary<string, TextMeshPro>();
 
         /// 
 
         public GameObject bullet; // reference to bullet object and               
 
         public Transform firePoint; // bullet respawn position
-        public Canvas spawnTextCanvas;
         public Camera cam;
+
+        public GameObject target1;
 
         IEnumerator Start()
         {
             yield return new WaitForSeconds(0.1f); // wait for text generation
             rb = GetComponent<Rigidbody2D>();
             LoadObstaclesDic();
-            prevPosition = player.transform.position;
+
         }
 
 
@@ -45,10 +45,12 @@ namespace Script.LevelsScripts.GamePlay
             if (Input.anyKeyDown)
             {
                 string key = Input.inputString;
-                // CheckInputKey(key);
+                CheckInputKey(key);
+                RotatePlayerTowardsTarget(target1);
+                
                 Shoot();
             }
-            
+
         }
 
         /// <summary>
@@ -57,66 +59,59 @@ namespace Script.LevelsScripts.GamePlay
         /// </summary>
         private void LoadObstaclesDic()
         {
-           
+            // SpawnSpace spawned = baseOject.GetComponent<SpawnSpace>();
+            // if (spawned == null) return;
+            // _obstacles = spawned.GetListWords();
+            // foreach (GameObject item in _obstacles)
+            // {
+            //     TextMeshPro tmp = item.GetComponent<TextMeshPro>();
+            //     ObstacleController controller = tmp.GetComponent<ObstacleController>();
+            //     ObstacleMap.Add(controller.GetNextText(), tmp);
+            //     
+            //     Debug.Log($"key: {controller.GetNextText()} , value: {tmp.text}");
+            // }
+            // Debug.Log("size of map: " + _obstacles.Count);
         }
+    
+
 
 
         void CheckInputKey(string key)
         {
-            if (ObstacleMap.ContainsKey(key))
-            {
-                float angle = GetAngle(player.transform.position, ObstacleMap[key].Text.transform.position, prevPosition);
-                player.transform.Rotate(0,0,angle,Space.Self);
-                prevPosition = player.transform.position;
-                
-                Shoot();
-                if (ObstacleMap[key].HasNextText())
-                {
-                    string positionKey = ObstacleMap[key].LeftoverText.Substring(0, 1);
-                    ObstacleMap[key].LeftoverText = ObstacleMap[key].LeftoverText.Substring(1);
-                    ReWordMap(positionKey, ObstacleMap[key]);
-                }
-                ObstacleMap.Remove(key);
-            }
-            else
-            {
-                Debug.Log($"{key} not found or object out of bounds");
-            }
+            
         }
 
         void ReWordMap(string key,Obstacle obstacle)
         {
-            ObstacleMap.Add(key,obstacle);
+            // ObstacleMap.Add(key,obstacle);
         }
-        bool IsObjectVisible(Camera cam, Transform obj)
+        bool IsObjectVisible(Transform obj)
         {
             // Convert the object's position to viewport coordinates
             Vector3 viewportPoint = cam.WorldToViewportPoint(obj.position);
 
             // Check if the object is within the viewport bounds
-            bool isVisible = viewportPoint.x >= 0 && viewportPoint.x <= 1 &&
-                             viewportPoint.y >= 0 && viewportPoint.y <= 1;
+            bool isVisible = viewportPoint.x is >= 0 and <= 1 &&
+                             viewportPoint.y is >= 0 and <= 1;
             return isVisible;
         }
     
-
-        private float GetAngle(Vector2 playerPosition, Vector2 targetPosition, Vector3 prevPosition)
+        private void RotatePlayerTowardsTarget(GameObject target)
         {
-            Vector2 direction = targetPosition - playerPosition;
-            float angle = Vector2.Angle( direction, Vector2.up);
+            // Calculate direction to the target
+            Vector2 directionToTarget = (target.transform.position - player.transform.position).normalized;
 
-
-            // change the angle on the right side
-            if (targetPosition.x > 0)
-                if (targetPosition.x > prevPosition.x)
-                    angle *= -1;
+            // Get the angle in degrees relative to the player's current forward direction
+            float angleToTarget = Mathf.Atan2(directionToTarget.y, directionToTarget.x) * Mathf.Rad2Deg;
+            angleToTarget -= 90;
             
-            // change the angle on the left side
-            if (targetPosition.x < 0)
-                if (targetPosition.x > prevPosition.x)
-                    angle *= -1;
-            return angle;
+            // Apply rotation
+            player.transform.rotation = Quaternion.Euler(0, 0, angleToTarget);
+
+            Debug.Log("Player rotated to angle: " + angleToTarget);
         }
+
+        
         private void Shoot()
         {
             Instantiate(bullet, firePoint.position, firePoint.rotation);

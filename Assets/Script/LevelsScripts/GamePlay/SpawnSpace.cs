@@ -41,9 +41,15 @@ public class SpawnSpace : MonoBehaviour
             if (checkSpawnSpaceX.Contains(randomX))
             {
                 randomX = Random.Range(-9f, 9);
-            } else checkSpawnSpaceX.Add(randomX);
+            }
+            else
+            {
+                checkSpawnSpaceX.Add(randomX);
+                break;
+            }
+                
         } while(checkSpawnSpaceX.Contains(randomX));
-        return randomX;
+        return randomX; 
     }
 
     public float RanDomY()
@@ -56,12 +62,17 @@ public class SpawnSpace : MonoBehaviour
             {
                 index = Random.Range(0, _spaceUnitY.Length);
                 randomY = spawnPoint.position.y + _spaceUnitY[index];
-            } else checkSpawnSpaceY.Add(randomY);
+            }
+            else
+            {
+                checkSpawnSpaceY.Add(randomY);
+                break;
+            }
         } while (checkSpawnSpaceY.Contains(randomY));
         return randomY;
     }
 
-    private GameObject Spawn()
+    public GameObject Spawn()
     {
         // Vi tri ngau nhien tren truc X (chon toi khi khong con sinh ra tai mot vi tri tren truc X)
         float x = RanDomX();
@@ -72,8 +83,8 @@ public class SpawnSpace : MonoBehaviour
     }
 
     // Lay mang
-    public List<GameObject> getListWords()
+    public List<GameObject> GetListWords()
     {
-        return new List<GameObject>(spawnedObjects);
+        return spawnedObjects;
     }
 }
