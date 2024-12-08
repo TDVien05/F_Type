@@ -154,9 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToSpawn: {fileID: 6322524622543544599, guid: d541b6dcb8a51a74da89aad58d5b9f11, type: 3}
   spawnPoint: {fileID: 238079111}
-  spawnLimit: 4
   checkSpawnSpaceX: []
-  checkSpawnSpaceY: []
 --- !u!212 &238079110
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -218,7 +216,7 @@ Transform:
   m_GameObject: {fileID: 238079108}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.01, y: 9.45, z: 0}
+  m_LocalPosition: {x: 0.01, y: 10.14, z: 0}
   m_LocalScale: {x: 1.4327834, y: 1.6313083, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -531,6 +529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 645378e308e07c547811818046ae2d43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnSpace: {fileID: 238079109}
 --- !u!50 &1004657601
 Rigidbody2D:
   serializedVersion: 4

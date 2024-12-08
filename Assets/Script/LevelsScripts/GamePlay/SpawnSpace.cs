@@ -1,24 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class SpawnSpace : MonoBehaviour
 {
     public GameObject objectToSpawn; // Gan prefabs 
     public Transform spawnPoint;    // Diem spawn
-    public int spawnLimit = 10;      // So luong prefabs muon spawn
+    private int spawnLimit = 4;      // So luong prefabs muon spawn
     public List<float> checkSpawnSpaceX = new List<float>();
-    public List<float> checkSpawnSpaceY = new List<float>();
-    private float[] _spaceUnitY = new float[4]
-    {
-        2, 3, 4, 5
-    };
+
+    private List<float> checkRandomTime = new List<float>();
+    private int checkIndexDelayTime = 0;
     private List<GameObject> spawnedObjects = new List<GameObject>(); // Mang luu cac prefabs spawn
 
     private void Start()
     {
         // Ham tao cac prefabs mot lan
         SpawnAllObjects();
+        SetDelayTimeToMovingDown();
     }
 
     private void SpawnAllObjects()
@@ -33,6 +33,28 @@ public class SpawnSpace : MonoBehaviour
         Debug.Log("Done spawning all objects!");
     }
 
+    private float RandomTimeToDelay()
+    {
+        float[] randomTime = new float[4]
+        {
+            0f, 3f, 6f, 9f
+        };
+        float ans = randomTime[checkIndexDelayTime];
+        checkIndexDelayTime++;
+        return ans;
+    }
+
+    private void SetDelayTimeToMovingDown()
+    {
+        float delay;
+        for (int i = 0; i < spawnedObjects.Count; i++)
+        {
+            delay = RandomTimeToDelay();
+            spawnedObjects[i].GetComponentInChildren<TextController>().SetDelayTime(delay);
+        }
+        Debug.Log("Done setting delay time!");
+    }
+
     public float RanDomX()
     {
         float randomX = Random.Range(-9f, 9);
@@ -41,24 +63,18 @@ public class SpawnSpace : MonoBehaviour
             if (checkSpawnSpaceX.Contains(randomX))
             {
                 randomX = Random.Range(-9f, 9);
-            } else checkSpawnSpaceX.Add(randomX);
+            } else
+            {
+                checkSpawnSpaceX.Add(randomX);
+                break;
+            }
         } while(checkSpawnSpaceX.Contains(randomX));
         return randomX;
     }
 
     public float RanDomY()
     {
-        int index = Random.Range(0, _spaceUnitY.Length);
-        float randomY = spawnPoint.position.y + _spaceUnitY[index];
-        do
-        {
-            if (checkSpawnSpaceY.Contains(randomY))
-            {
-                index = Random.Range(0, _spaceUnitY.Length);
-                randomY = spawnPoint.position.y + _spaceUnitY[index];
-            } else checkSpawnSpaceY.Add(randomY);
-        } while (checkSpawnSpaceY.Contains(randomY));
-        return randomY;
+        return transform.position.y;
     }
 
     private GameObject Spawn()
@@ -72,8 +88,8 @@ public class SpawnSpace : MonoBehaviour
     }
 
     // Lay mang
-    public List<GameObject> getListWords()
+    public List<GameObject> GetListWords()
     {
-        return new List<GameObject>(spawnedObjects);
+        return spawnedObjects;
     }
 }
