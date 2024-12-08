@@ -11,8 +11,15 @@ public class TextController : MonoBehaviour
     private List<TextMeshPro> listWords = new List<TextMeshPro>();
     private Transform squareTransform;
     private SpawnSpace spawnSpace = new SpawnSpace();
+    private float delayTime;
+    private List<string> checkWords = new List<string>();
+    private bool isDelaying;
+
     private void Start()
     {
+        isDelaying = true;
+        StartCoroutine(MovingTextDown());
+        
         // Lay textMeshPro tu prefabs
         textMesh = GetComponentInChildren<TextMeshPro>();
         squareTransform = textMesh.transform.parent;
@@ -23,15 +30,28 @@ public class TextController : MonoBehaviour
         }
     }
 
+    public void SetDelayTime(float delayTime)
+    {
+        this.delayTime = delayTime;
+    }
+
     private void Update()
     {
-        // Di chuyen prefabs di xuong
-        transform.Translate(Vector3.down * speed * Time.deltaTime);
-        if (transform.position.y <= 0f)
+        if (!isDelaying)
         {
-            RandomSpace();
-            GenerateWords(textMesh);
-        }
+            transform.Translate(Vector3.down * speed * Time.deltaTime);
+            if (transform.position.y <= 0f)
+            {
+                RandomSpace();
+                GenerateWords(textMesh);
+            }
+        } 
+    }
+
+    IEnumerator MovingTextDown()
+    {
+        yield return new WaitForSeconds(delayTime);
+        isDelaying = false;
     }
 
     // Tao vi tri moi sau khi va cham Bullet, ...
@@ -60,6 +80,20 @@ public class TextController : MonoBehaviour
             "energy", "freedom", "galaxy", "horizon", "imagine", "jewel", "kindness", "lighthouse", "miracle", "nature",
             "oasis", "paradise", "quest", "rainbow", "starlight", "tranquility", "unity", "voyage", "wisdom", "zenith" };
         int randomIndex = Random.Range(0, randomWords.Length);
+        string randomWord = randomWords[randomIndex];
+        do
+        {
+            if (checkWords.Contains(randomWord))
+            {
+                randomIndex = Random.Range(0, randomWords.Length);
+                randomWord = randomWords[randomIndex];
+            }
+            else
+            {
+                checkWords.Add(randomWord);
+                break;
+            }
+        } while (checkWords.Contains(randomWord));
         return randomWords[randomIndex];
     }
 
