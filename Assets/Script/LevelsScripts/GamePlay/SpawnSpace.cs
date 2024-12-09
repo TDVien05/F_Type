@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Script.LevelsScripts.GamePlay;
 using TMPro;
 using UnityEngine;
 

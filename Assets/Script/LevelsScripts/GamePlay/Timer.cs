@@ -10,18 +10,19 @@ public class Timer : MonoBehaviour
     public float time;
     public TMP_Text text;
 
-    private string filePath;
-    private Player playerSetting; // player object to store json setting
+    private string _filePath;
+    private Player _playerSetting; // player object to store json setting
     public Transform timerObject;
     public ChangeScene timeOver; 
     public Score currentScore;
 
-
+    private bool _isRunning;
 
     // Start is called before the first frame update
     void Start()
     {
-        filePath = "DB\\PlayerSetting.txt";
+        _isRunning = true;
+        _filePath = "DB\\PlayerSetting.txt";
         LoadSceneSetting();
     }
 
@@ -30,13 +31,13 @@ public class Timer : MonoBehaviour
     {
         try
         {
-            string settings = File.ReadAllText(filePath);
+            string settings = File.ReadAllText(_filePath);
             if(settings.Length > 0)
             {
-                playerSetting = JsonUtility.FromJson<Player>(settings);
+                _playerSetting = JsonUtility.FromJson<Player>(settings);
             }else
             {
-                playerSetting = new Player
+                _playerSetting = new Player
                 {
                     Level = "30s"
                 };
@@ -44,20 +45,20 @@ public class Timer : MonoBehaviour
             }
 
             // switch to specific level
-            switch(playerSetting.Level)
+            switch(_playerSetting.Level)
             {
                 case "30s":
-                    Debug.Log(playerSetting.Level);
+                    Debug.Log(_playerSetting.Level);
                     time = 30;
                     text.text = Mathf.Ceil(time).ToString();
                     break;
                 case "60s":
-                    Debug.Log(playerSetting.Level);
+                    Debug.Log(_playerSetting.Level);
                     time = 60;
                     text.text = Mathf.Ceil(time).ToString();
                     break;
                 default:
-                    Debug.Log(playerSetting.Level); 
+                    Debug.Log(_playerSetting.Level); 
                     DisableTimerGameObject(); // failure mode turn on
                     break;  
             }
@@ -81,6 +82,7 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!_isRunning) return;
         time -= Time.deltaTime;
 
         if (time <= 0)
@@ -93,6 +95,15 @@ public class Timer : MonoBehaviour
         }
     }
 
+    public void TimeStart()
+    {
+        _isRunning = true;
+    }
+
+    public void TimePause()
+    {
+        _isRunning = false;
+    }
     private void End()
     {
         Debug.Log("End");
@@ -106,10 +117,9 @@ public class Timer : MonoBehaviour
     {
         if (currentScore != null)
         {
-            playerSetting.Score = currentScore.GetScore();
-            string currentSetting = JsonUtility.ToJson(playerSetting, true);
-            File.WriteAllText(filePath,currentSetting);
+            _playerSetting.Score = currentScore.GetScore();
+            string currentSetting = JsonUtility.ToJson(_playerSetting, true);
+            File.WriteAllText(_filePath,currentSetting);
         }
-
     }
 }
