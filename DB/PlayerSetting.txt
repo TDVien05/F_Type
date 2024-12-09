@@ -1,0 +1,6 @@
+{
+    "Level": "60s",
+    "Score": 3,
+    "HighScore": 4,
+    "TypingTime": 0.0
+}
