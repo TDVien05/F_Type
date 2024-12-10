@@ -5,15 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="47793312-89a5-4752-b6f1-eec74c51ff50" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Bullet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FinalProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FinalProject/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacle.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameProgression.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameProgression.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/BulletController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/LevelsScripts/BulletController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/Score.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/Score.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/SpawnSpace.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/SpawnSpace.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/TextController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/TextController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/Timer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/Timer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/ObstacleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/LevelsScripts/ObstacleController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/SceneScript/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/SceneScript/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/PlayerSetting.txt" beforeDir="false" afterPath="$PROJECT_DIR$/DB/PlayerSetting.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,6 +112,8 @@
       <workItem from="1733557347777" duration="3642000" />
       <workItem from="1733669215073" duration="1923000" />
       <workItem from="1733671536815" duration="18214000" />
+      <workItem from="1733755566917" duration="488000" />
+      <workItem from="1733756098046" duration="5658000" />
     </task>
     <servers />
   </component>

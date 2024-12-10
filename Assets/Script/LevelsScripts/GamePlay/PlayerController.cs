@@ -6,36 +6,40 @@ namespace Script.LevelsScripts.GamePlay
 {
     public class PlayerController : MonoBehaviour
     {
+        // player movement. Coming soon...
         public float speed = 5f;
         private Rigidbody2D rb;
         private Vector2 movement;
 
         /// <summary>
-        /// Mapping word and its position using dictionary collection
+        /// Mapping words and their position using dictionary collection
         /// Reference to player, spawn base and all obstacles on the scene
         /// </summary>
         public GameObject player;
         public GameObject baseOject;
         private List<GameObject> _obstacles;
-        // map the hold words on the scene
+        // map for every words on the scene
         private readonly Dictionary<string, TextMeshPro> _obstacleMap = new Dictionary<string, TextMeshPro>();
-        // map the current word
+        // map for currently typing word
         private Dictionary<string, TextMeshPro> _localTextMap = new Dictionary<string, TextMeshPro>();
         private bool _isLocalText;
+        private string _currentKey;
         /// 
 
-        public GameObject bullet; // reference to bullet prefab and               
+        public GameObject bullet;    // reference to bullet prefab and               
         public Transform firePoint; // bullet respawn position
         public Camera cam;
-
+        public Score scoreController;
+        public Timer timer;
+        
+        
         private IEnumerator Start()
         {
             yield return new WaitForSeconds(0.1f); // wait for text generation
             rb = GetComponent<Rigidbody2D>();
-            _isLocalText = false; // set to local words scope first
+            _isLocalText = false; // set to global scope first
             LoadObstaclesDic();
         }
-
 
         // Check player's input key for every frames
         void Update()
@@ -55,7 +59,7 @@ namespace Script.LevelsScripts.GamePlay
         private void LoadObstaclesDic()
         {
             SpawnSpace spawned = baseOject.GetComponent<SpawnSpace>();
-            if (spawned == null) return; // return if no spawn base found
+            if (spawned == null) return; // break if no spawn base found
             _obstacles = spawned.GetListWords();
             Debug.Log("Obstacle List: " + _obstacles.Count);
             foreach (var item in _obstacles)
@@ -66,12 +70,15 @@ namespace Script.LevelsScripts.GamePlay
                 // regenerate if the key is existed 
                 while (_obstacleMap.ContainsKey(controller.GetNextText()))
                 {
-                    // regenerate other Obstacle
+                    // regenerate other word 
                     Debug.Log($"Key {controller.GetNextText()} existed. Regenerate another obstacle");
-                    var reGenerateObject = spawned.Spawn();
-                    tmp = reGenerateObject.GetComponentInChildren<TextMeshPro>();
+                    
+                    TextController textController = tmp.GetComponent<TextController>();
+                    textController.RandomSpace();
+                    textController.GenerateWords(tmp);
                     controller = tmp.GetComponent<ObstacleController>(); 
                 }
+                
                 _obstacleMap.Add(controller.GetNextText(), tmp);
                 Debug.Log($"key: {controller.GetNextText()}, value: {tmp.text}");
             }
@@ -82,10 +89,10 @@ namespace Script.LevelsScripts.GamePlay
         /// This function checks input key by 2 options:
         /// + Current typing word (local text)
         ///     - In this case, it will search through the _localTextMap dictionary for desired key 
-        /// + Any scene words (global text)
+        /// + Any words on the scene (global text)
         ///     - In this case, it will search through the _obstacleMap dictionary for desired key 
         /// </summary>
-        /// <param name="key"> input from player </param>
+        /// <param name="key"> input key from player </param>
         void CheckInputKey(string key)
         {
             if (_isLocalText)
@@ -96,9 +103,14 @@ namespace Script.LevelsScripts.GamePlay
                     RotatePlayerTowardsTarget(obstacleText.gameObject);
                     Shoot();
                     // upgrade key and value for leftover text
-                    _localTextMap = ReLocalTextMap(obstacleText);
-                    if(obstacleText.text.Length == 0) 
+                    _localTextMap = ReSetLocalTextMap(obstacleText);
+                    // remove key if the current word is empty
+                    if (obstacleText.text.Length == 0)
+                    {
                         _isLocalText = false;
+                        _obstacleMap.Remove(_currentKey);
+                        scoreController.UpdateScore(1);
+                    }
                 }
                 else
                 {
@@ -109,16 +121,18 @@ namespace Script.LevelsScripts.GamePlay
             {
                 if (_obstacleMap.ContainsKey(key))
                 {
+                    _currentKey = key;
                     TextMeshPro obstacleText = _obstacleMap[key];
                     ObstacleController controller = obstacleText.GetComponent<ObstacleController>();
-                    // if the valid key and is visible by player
+                    
+                    // if is valid key and is visible by player
                     if (IsObjectVisible(obstacleText.transform))
                     {
                         RotatePlayerTowardsTarget(obstacleText.gameObject);
                         Shoot();
                         // turn to local text context
                         _isLocalText = true;
-                        _localTextMap = ReLocalTextMap(obstacleText);
+                        _localTextMap = ReSetLocalTextMap(obstacleText);
                         controller.SetTyping(true);
                     }
                     else
@@ -131,10 +145,16 @@ namespace Script.LevelsScripts.GamePlay
                     Debug.Log($"{key} key not found in obstacle map");
                 }
             }
+            // reset map if player have typed all words on the scene
+            if (_obstacleMap.Count == 0)
+            {
+                _isLocalText = false;
+                ReSetTextMap();
+            }
         }
         
-        // this function will reassign pair key and value of the _localTextMap for each valid key
-        private Dictionary<string, TextMeshPro> ReLocalTextMap(TextMeshPro obstacleText)
+        // this function will reassign a pair key and value of the _localTextMap for each valid key
+        private Dictionary<string, TextMeshPro> ReSetLocalTextMap(TextMeshPro obstacleText)
         {
             Dictionary<string, TextMeshPro> localTextMap = new Dictionary<string, TextMeshPro>(); // new dictionary
             ObstacleController controller = obstacleText.GetComponent<ObstacleController>();
@@ -145,7 +165,29 @@ namespace Script.LevelsScripts.GamePlay
                 
             return localTextMap;
         }
-        
+
+        // assign new values for _obstacleMap
+        private void ReSetTextMap()
+        {
+            _localTextMap.Clear();
+            _obstacleMap.Clear();
+            foreach (var obstacle in _obstacles)
+            {
+                TextMeshPro tmp = obstacle.GetComponentInChildren<TextMeshPro>(); // reference to text of the obstacle
+                TextController textController = tmp.GetComponent<TextController>(); // word generation purpose
+                
+                do // regenerate word if there is an existed key in _obstacleMap
+                {
+                    textController.RandomSpace();
+                    textController.GenerateWords(tmp);
+                    Debug.Log("new word " + tmp.text);
+                } while (_obstacleMap.ContainsKey(tmp.text.Substring(0,1)));
+                obstacle.GetComponentInChildren<TextController>().SetIsDelaying(true);
+				
+                _obstacleMap.Add(tmp.text.Substring(0, 1), tmp);
+                Debug.Log($"new key: {tmp.text.Substring(0,1)}, value: {tmp.text}");
+            }
+        }
         bool IsObjectVisible(Transform obj)
         {
             // Convert the object's position to viewport coordinates
@@ -170,7 +212,6 @@ namespace Script.LevelsScripts.GamePlay
             // Apply rotation
             player.transform.rotation = Quaternion.Euler(0, 0, angleToTarget);
         }
-
         
         private void Shoot()
         {

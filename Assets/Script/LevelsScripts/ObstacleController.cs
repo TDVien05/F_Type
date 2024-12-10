@@ -1,4 +1,5 @@
 using System;
+using Script.LevelsScripts.GamePlay;
 using UnityEngine;
 using TMPro;
 namespace Script.LevelsScripts
@@ -10,8 +11,11 @@ namespace Script.LevelsScripts
         private bool _isTyping; 
         public TextController textController;
         
+        private AudioSource audioSource;
+        
         private void Start()
         {
+            audioSource = GetComponent<AudioSource>();
             _isTyping = false;
             _textMesh = GetComponentInChildren<TextMeshPro>();
         }
@@ -51,6 +55,7 @@ namespace Script.LevelsScripts
         {
             if (other.CompareTag("bullet") && _isTyping)
             {
+                audioSource.Play();
                 Debug.Log("Collided with bullet and is typing.");
                 Destroy(other.gameObject);
             }
