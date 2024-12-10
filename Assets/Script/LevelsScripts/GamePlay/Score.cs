@@ -6,20 +6,19 @@ public class Score : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    private int currentScore = 0;
+    private int _currentScore = 0;
     public TMP_Text text;
     // Update is called once per frame
 
     public void Start()
     {
         text.text = "0";
-        currentScore = 0;
+        _currentScore = 0;
     }
 
     public void UpdateScore(int score) { 
-        currentScore += score; 
-        text.text = currentScore.ToString();
-    
+        _currentScore += score; 
+        text.text = _currentScore.ToString();
     }
-    public int GetScore() {  return currentScore; }
+    public int GetScore() {  return _currentScore; }
 }

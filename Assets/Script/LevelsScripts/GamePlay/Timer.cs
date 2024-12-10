@@ -4,42 +4,62 @@ using UnityEngine;
 using TMPro;
 using System.IO;
 using System;
+using GameLogic;
 public class Timer : MonoBehaviour
 {
     public float time;
     public TMP_Text text;
 
-    public Canvas canvas;
-    private string filePath;
-
+    private string _filePath;
+    private Player _playerSetting; // player object to store json setting
     public Transform timerObject;
+    public ChangeScene timeOver; 
+    public Score currentScore;
+
+    private bool _isRunning;
+
     // Start is called before the first frame update
     void Start()
     {
-        filePath = "DB\\Level.txt";
+        _isRunning = true;
+        _filePath = "DB\\PlayerSetting.txt";
         LoadSceneSetting();
     }
 
+    // Load current level settings
     private void LoadSceneSetting()
     {
         try
         {
-            string SceneName = File.ReadAllText(filePath);
-            switch(SceneName)
+            string settings = File.ReadAllText(_filePath);
+            if(settings.Length > 0)
+            {
+                _playerSetting = JsonUtility.FromJson<Player>(settings);
+            }else
+            {
+                _playerSetting = new Player
+                {
+                    Level = "30s"
+                };
+
+            }
+
+            // switch to specific level
+            switch(_playerSetting.Level)
             {
                 case "30s":
-                    Debug.Log(SceneName);
+                    Debug.Log(_playerSetting.Level);
                     time = 30;
                     text.text = Mathf.Ceil(time).ToString();
                     break;
                 case "60s":
-                    Debug.Log(SceneName);
+                    Debug.Log(_playerSetting.Level);
                     time = 60;
                     text.text = Mathf.Ceil(time).ToString();
                     break;
                 default:
-                    Debug.Log(SceneName);
-                    DisableTimerGameObject();
+                    Debug.Log(_playerSetting.Level); 
+                    DisableTimerGameObject(); // failure mode turn on
                     break;  
             }
         }
@@ -62,6 +82,7 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!_isRunning) return;
         time -= Time.deltaTime;
 
         if (time <= 0)
@@ -74,26 +95,31 @@ public class Timer : MonoBehaviour
         }
     }
 
+    public void TimeStart()
+    {
+        _isRunning = true;
+    }
+
+    public void TimePause()
+    {
+        _isRunning = false;
+    }
     private void End()
     {
         Debug.Log("End");
-            ChangeScene timeOver = FindObjectOfType<ChangeScene>();
-            if (timeOver != null) 
-            {
-                timeOver.change();
-            }
-
-            SaveCurrentScore();
-        
+        SaveCurrentScore();
+        if (timeOver != null) 
+        {
+            timeOver.change();
+        }
     }
     private void SaveCurrentScore()
     {
-        Score currentScore = FindObjectOfType<Score>();
         if (currentScore != null)
         {
-            File.WriteAllText("DB\\CurrentScore.txt", currentScore.GetScore().ToString());
-            Debug.Log("Save current score: " + currentScore.GetScore());
+            _playerSetting.Score = currentScore.GetScore();
+            string currentSetting = JsonUtility.ToJson(_playerSetting, true);
+            File.WriteAllText(_filePath,currentSetting);
         }
-
     }
 }

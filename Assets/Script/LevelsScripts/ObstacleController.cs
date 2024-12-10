@@ -1,48 +1,64 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
+using Script.LevelsScripts.GamePlay;
 using UnityEngine;
-
-public class ObstacleController : MonoBehaviour
+using TMPro;
+namespace Script.LevelsScripts
 {
-    public float heal = 100f;
-    public float damage = 50f;
-
-
-    public float GetHeal() { return heal; }
-    private void OnTriggerEnter2D(Collider2D col)
+    public class ObstacleController : MonoBehaviour
     {
-        if (col.gameObject.CompareTag("bullet"))
+        private TextMeshPro _textMesh; // text object
+        public TMP_Text text; // prefab text
+        private bool _isTyping; 
+        public TextController textController;
+        
+        private AudioSource audioSource;
+        
+        private void Start()
         {
-            TakeDamage();
-            Destroy(col.gameObject);
+            audioSource = GetComponent<AudioSource>();
+            _isTyping = false;
+            _textMesh = GetComponentInChildren<TextMeshPro>();
         }
-    }
 
-    private void TakeDamage()
-    {
-        heal -= damage;
-        if (heal <= 0)
+        // return the first character of the text
+        public string GetNextText()
         {
-            Die();
+            string head = "";
+            if (text.text.Length > 0)
+            {
+                head = text.text.Substring(0, 1);
+            }
+            return head;
         }
-    }
-
-    // if the obstacle die, change its position outside of the camera view
-    private void Die()
-    {
-        ChangePosition();
-        Score score = FindObjectOfType<Score>();
-        if (score != null) 
+            
+        // return leftover text
+        public string GetSubText()
         {
-            score.UpdateScore(1);
+            if (text.text.Length > 0)
+            {
+                return text.text.Substring(1);
+            }
+            return "";
         }
-         
-    }
-   
-    private void ChangePosition()
-    {
-        Vector3 currentPosition = this.transform.position;
-        currentPosition.x *= 10;
-        this.transform.position = currentPosition;
+        public void SetText(string newText)
+        {
+            text.text = newText;
+        }
+    
+        // set typing status 
+        public void SetTyping(bool isTyping)
+        {
+            this._isTyping = isTyping;
+        }
+        
+        void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag("bullet") && _isTyping)
+            {
+                audioSource.Play();
+                Debug.Log("Collided with bullet and is typing.");
+                Destroy(other.gameObject);
+            }
+        }
     }
 }
