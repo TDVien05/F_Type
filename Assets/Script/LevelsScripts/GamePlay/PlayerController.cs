@@ -182,7 +182,8 @@ namespace Script.LevelsScripts.GamePlay
                     textController.GenerateWords(tmp);
                     Debug.Log("new word " + tmp.text);
                 } while (_obstacleMap.ContainsKey(tmp.text.Substring(0,1)));
-                
+                obstacle.GetComponentInChildren<TextController>().SetIsDelaying(true);
+				
                 _obstacleMap.Add(tmp.text.Substring(0, 1), tmp);
                 Debug.Log($"new key: {tmp.text.Substring(0,1)}, value: {tmp.text}");
             }

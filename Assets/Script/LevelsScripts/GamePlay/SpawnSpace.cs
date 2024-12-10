@@ -38,7 +38,7 @@ public class SpawnSpace : MonoBehaviour
     {
         float[] randomTime = new float[4]
         {
-            0f, 3f, 6f, 9f
+            0f, 2f, 4f, 6f
         };
         float ans = randomTime[checkIndexDelayTime];
         checkIndexDelayTime++;
