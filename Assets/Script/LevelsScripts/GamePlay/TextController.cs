@@ -13,9 +13,9 @@ namespace Script.LevelsScripts.GamePlay
         private List<TextMeshPro> listWords = new List<TextMeshPro>();
         private Transform squareTransform;
         private SpawnSpace spawnSpace = new SpawnSpace();
-        private float delayTime;
+        public float delayTime;
         private List<string> checkWords = new List<string>();
-        private bool isDelaying;
+        private bool isDelaying = true;
 
         public void SetIsDelaying(bool isDelay)
         {
@@ -38,7 +38,6 @@ namespace Script.LevelsScripts.GamePlay
 
         private void Delay()
         {
-            isDelaying = true;
             StartCoroutine(MovingTextDown());
         }
 
@@ -52,7 +51,6 @@ namespace Script.LevelsScripts.GamePlay
             if (!isDelaying)
             {
                 transform.Translate(Vector3.down * speed * Time.deltaTime);
-                
             } else Delay();
         }
 
@@ -75,6 +73,7 @@ namespace Script.LevelsScripts.GamePlay
         // Tao chu v mau ngau nhien
         public void GenerateWords(TextMeshPro textMesh)
         {
+            speed += 0.1f;
             textMesh.text = GenerateRandomWord();
             textMesh.color = GenerateRandomColor();
         }
@@ -84,7 +83,7 @@ namespace Script.LevelsScripts.GamePlay
         {
             string[] randomWords = { "apple", "banana", "cherry", "dream", "eagle", "forest", "garden", "honey", "island", "jungle",
                 "kangaroo", "lemon", "mountain", "nebula", "ocean", "planet", "queen", "river", "sunshine", "tiger",
-                "umbrella", "valley", "whale", "xylophone", "yacht", "zebra", "adventure", "blossom", "cloud", "diamond",
+                "umbrella", "valley", "whale", "white", "yacht", "zebra", "adventure", "blossom", "cloud", "diamond",
                 "energy", "freedom", "galaxy", "horizon", "imagine", "jewel", "kindness", "lighthouse", "miracle", "nature",
                 "oasis", "paradise", "quest", "rainbow", "starlight", "tranquility", "unity", "voyage", "wisdom", "zenith" };
             int randomIndex = Random.Range(0, randomWords.Length);
