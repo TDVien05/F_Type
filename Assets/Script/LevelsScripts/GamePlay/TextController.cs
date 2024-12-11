@@ -17,10 +17,14 @@ namespace Script.LevelsScripts.GamePlay
         private List<string> checkWords = new List<string>();
         private bool isDelaying;
 
+        public void SetIsDelaying(bool isDelay)
+        {
+            this.isDelaying = isDelay;
+        }
+
         private void Start()
         {
-            isDelaying = true;
-            StartCoroutine(MovingTextDown());
+            Delay();
         
             // Lay textMeshPro tu prefabs
             textMesh = GetComponentInChildren<TextMeshPro>();
@@ -30,6 +34,12 @@ namespace Script.LevelsScripts.GamePlay
                 startPosition = transform.position;
                 GenerateWords(textMesh);
             }
+        }
+
+        private void Delay()
+        {
+            isDelaying = true;
+            StartCoroutine(MovingTextDown());
         }
 
         public void SetDelayTime(float delayTime)
@@ -42,12 +52,8 @@ namespace Script.LevelsScripts.GamePlay
             if (!isDelaying)
             {
                 transform.Translate(Vector3.down * speed * Time.deltaTime);
-                if (transform.position.y <= 0f)
-                {
-                    RandomSpace();
-                    GenerateWords(textMesh);
-                }
-            } 
+                
+            } else Delay();
         }
 
         IEnumerator MovingTextDown()
