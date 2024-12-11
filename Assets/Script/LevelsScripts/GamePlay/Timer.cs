@@ -5,8 +5,12 @@ using TMPro;
 using System.IO;
 using System;
 using GameLogic;
+using Script.LevelsScripts.GamePlay;
+
 public class Timer : MonoBehaviour
 {
+    private ParagraphController paragraphController;
+
     public float time;
     public TMP_Text text;
 
@@ -57,6 +61,11 @@ public class Timer : MonoBehaviour
                     time = 60;
                     text.text = Mathf.Ceil(time).ToString();
                     break;
+                case "Paragraph":
+                    Debug.Log("Level set to Paragraph");
+                    time = 0;
+                    text.text = Mathf.Ceil(time).ToString();
+                    break;
                 default:
                     Debug.Log(_playerSetting.Level); 
                     DisableTimerGameObject(); // failure mode turn on
@@ -68,6 +77,7 @@ public class Timer : MonoBehaviour
             Debug.LogException(e);
         }
     }
+
 
     private void DisableTimerGameObject()
     {
@@ -82,17 +92,39 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!_isRunning) return;
-        time -= Time.deltaTime;
+        paragraphController = GetComponent<ParagraphController>();
 
-        if (time <= 0)
+        if (_playerSetting.Level == "Paragraph")
         {
-            text.text = "0";
-            End();
-        }else
-        {
+            if (!_isRunning) return;
+                time += Time.deltaTime;
+            Debug.Log("TypingTime: " + time);
+
+            // Cap nhat diem so
             text.text = Mathf.Ceil(time).ToString();
+            
+            if (paragraphController.completedText)
+            {
+                SaveTotalTime();
+                Debug.Log("Text is completed!");
+                End();
+            }
         }
+        else 
+        {
+            if (!_isRunning) return;
+                time -= Time.deltaTime;
+
+            if (time <= 0)
+            {
+                text.text = "0";
+                End();
+            }else
+            {
+                text.text = Mathf.Ceil(time).ToString();
+            }
+        }
+        
     }
 
     public void TimeStart()
@@ -104,6 +136,7 @@ public class Timer : MonoBehaviour
     {
         _isRunning = false;
     }
+
     private void End()
     {
         Debug.Log("End");
@@ -121,5 +154,11 @@ public class Timer : MonoBehaviour
             string currentSetting = JsonUtility.ToJson(_playerSetting, true);
             File.WriteAllText(_filePath,currentSetting);
         }
+    }
+    private void SaveTotalTime()
+    {
+        // Cap nhat thoi gian hoan thanh 
+        _playerSetting.TypingTime = time;
+        SaveCurrentScore();
     }
 }
