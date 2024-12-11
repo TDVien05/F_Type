@@ -16,6 +16,7 @@ namespace Script.LevelsScripts
         private void Start()
         {
             audioSource = GetComponent<AudioSource>();
+            audioSource.volume = 0.7f;
             _isTyping = false;
             _textMesh = GetComponentInChildren<TextMeshPro>();
         }
