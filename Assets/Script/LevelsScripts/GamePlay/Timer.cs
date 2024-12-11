@@ -84,7 +84,7 @@ public class Timer : MonoBehaviour
     {
         if (!_isRunning) return;
         time -= Time.deltaTime;
-
+        
         if (time <= 0)
         {
             text.text = "0";
