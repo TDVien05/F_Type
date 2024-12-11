@@ -9,7 +9,7 @@ public class AudioScript : MonoBehaviour
     void Start()
     {
         audioSource.Play();
-
+        audioSource.volume = 0.5f;
     }
 
     void Update()

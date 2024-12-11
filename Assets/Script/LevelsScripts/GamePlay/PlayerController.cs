@@ -10,6 +10,7 @@ namespace Script.LevelsScripts.GamePlay
         public float speed = 5f;
         private Rigidbody2D rb;
         private Vector2 movement;
+		private AudioSource audioSource;
 
         /// <summary>
         /// Mapping words and their position using dictionary collection
@@ -37,6 +38,8 @@ namespace Script.LevelsScripts.GamePlay
         {
             yield return new WaitForSeconds(0.1f); // wait for text generation
             rb = GetComponent<Rigidbody2D>();
+			audioSource = GetComponent<AudioSource>();
+            audioSource.volume = 0.6f;
             _isLocalText = false; // set to global scope first
             LoadObstaclesDic();
         }
@@ -183,7 +186,7 @@ namespace Script.LevelsScripts.GamePlay
                     Debug.Log("new word " + tmp.text);
                 } while (_obstacleMap.ContainsKey(tmp.text.Substring(0,1)));
                 obstacle.GetComponentInChildren<TextController>().SetIsDelaying(true);
-				
+                Debug.Log(obstacle.GetComponentInChildren<TextController>().delayTime);
                 _obstacleMap.Add(tmp.text.Substring(0, 1), tmp);
                 Debug.Log($"new key: {tmp.text.Substring(0,1)}, value: {tmp.text}");
             }
@@ -216,6 +219,7 @@ namespace Script.LevelsScripts.GamePlay
         private void Shoot()
         {
             Instantiate(bullet, firePoint.position, firePoint.rotation);
+			audioSource.Play();
         }
     }
 }
