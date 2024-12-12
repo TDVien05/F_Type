@@ -9,7 +9,7 @@ using Script.LevelsScripts.GamePlay;
 
 public class Timer : MonoBehaviour
 {
-    private ParagraphController paragraphController;
+    private SpawnParagraph spawnParagraph;
 
     public float time;
     public TMP_Text text;
@@ -62,8 +62,8 @@ public class Timer : MonoBehaviour
                     text.text = Mathf.Ceil(time).ToString();
                     break;
                 case "Paragraph":
-                    Debug.Log("Level set to Paragraph");
-                    time = 0;
+                    Debug.Log(_playerSetting.Level);
+                    time = 10;
                     text.text = Mathf.Ceil(time).ToString();
                     break;
                 default:
@@ -92,18 +92,18 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        paragraphController = GetComponent<ParagraphController>();
-
+        spawnParagraph = GetComponent<SpawnParagraph>();
+        Debug.Log("Current Level: " + _playerSetting.Level);
         if (_playerSetting.Level == "Paragraph")
         {
-            if (!_isRunning) return;
-                time += Time.deltaTime;
-            Debug.Log("TypingTime: " + time);
+            //if (!_isRunning) return;
+            time += Time.deltaTime;
+                Debug.Log("Da vao Paragraph");
 
             // Cap nhat diem so
             text.text = Mathf.Ceil(time).ToString();
             
-            if (paragraphController.completedText)
+            if (spawnParagraph.completedText)
             {
                 SaveTotalTime();
                 Debug.Log("Text is completed!");
@@ -114,7 +114,7 @@ public class Timer : MonoBehaviour
         {
             if (!_isRunning) return;
                 time -= Time.deltaTime;
-
+                //Debug.Log("TypingTime: " + time);
             if (time <= 0)
             {
                 text.text = "0";

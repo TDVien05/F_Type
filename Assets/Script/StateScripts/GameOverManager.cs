@@ -2,48 +2,51 @@
 using UnityEngine.SceneManagement;
 
 public class GameOverManager : MonoBehaviour
+{
+    private Vector3 bottomP;
+    void Start()
     {
-        public GameObject player; // Tham chieu den doi tuong la nguoi choi
+        Vector3 bottomP = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0f, 0f));
+        Debug.Log("Bottom Screen Position: " + bottomP);
+    }
 
-        void Update()
+    void Update()
+    {
+        //Kiem tra xem ke dich co cham vao day man hinh khong
+        CheckEnemiesFalling();
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("text"))
         {
-            //Kiem tra xem ke dich co cham vao day man hinh khong
-            CheckEnemiesFalling();
-        }
-
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            // kiem tra tag 'Enemy' cua doi tuong va cham
-            if (other.CompareTag("obstacle"))
-            {
-                GameOver();
-            }
-        }
-
-    private void CheckEnemiesFalling()
-        {
-            // Lay tat ca doi tuong co tag "Enemy"
-            GameObject[] enemies = GameObject.FindGameObjectsWithTag("obstacle");
-
-            foreach (GameObject enemy in enemies)
-            {
-                if (enemy.transform.position.y <= 0)
-                {
-                    GameOver();
-                    return;
-                }
-            }
-        }
-
-    private void GameOver()
-        {
-            // Chờ một 1 thoi gian trước khi chuyển cảnh
-            Invoke("LoadGameOverScene", 0f);
-        }
-
-        private void LoadGameOverScene()
-        {
-            // Chuyển sang scene "GameOver"
-            SceneManager.LoadScene("GameOver");
+            GameOver();
         }
     }
+
+    private void CheckEnemiesFalling()
+    {
+        // Lay tat ca doi tuong co tag "text"
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("text");
+        foreach (GameObject enemy in enemies)
+        {
+            if (enemy.transform.position.y < -1.5)
+            {
+                GameOver();
+                return;
+            }
+        }
+    }
+
+    private void GameOver()
+    {
+        // Cho mot thoi gian truoc khi chuyen canh
+        Invoke("LoadGameOverScene", 0f);
+    }
+
+    private void LoadGameOverScene()
+    {
+        // Chuyen sang scene "GameOver"
+        SceneManager.LoadScene("GameOver");
+    }
+}

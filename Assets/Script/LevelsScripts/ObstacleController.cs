@@ -8,8 +8,9 @@ namespace Script.LevelsScripts
     {
         private TextMeshPro _textMesh; // text object
         public TMP_Text text; // prefab text
-        private bool _isTyping; 
+        private bool _isTyping;
         public TextController textController;
+        public ParagraphController paragraphController;
         
         private AudioSource audioSource;
         
