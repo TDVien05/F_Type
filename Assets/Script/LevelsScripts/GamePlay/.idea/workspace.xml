@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="26c4ddcc-85bc-49fc-9d04-b4a3e8a87550" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../Prefabs/Obstacle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Prefabs/Obstacle.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpawnSpace.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SpawnSpace.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TextController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TextController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ObstacleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../ObstacleController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../DB/PlayerSetting.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../DB/PlayerSetting.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,8 +29,8 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/SpawnSpace.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/TextController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/SpawnSpace.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TextController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../ObstacleController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
@@ -70,6 +66,7 @@
       <workItem from="1733371333635" duration="16000" />
       <workItem from="1733372007736" duration="523000" />
       <workItem from="1733823500989" duration="1196000" />
+      <workItem from="1733841212955" duration="453000" />
     </task>
     <servers />
   </component>
