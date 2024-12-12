@@ -23,7 +23,6 @@ public class ParagraphController : MonoBehaviour
         if (transform.position.y < 0)
         {
             paragraphSpawn.SetWords(textMesh);
-            transform.position = startPosition;
         }
 
         if (paragraphSpawn.GetIsEnd() == true)
@@ -42,6 +41,7 @@ public class ParagraphController : MonoBehaviour
 
     void MovingTextDown()
     {
-        transform.Translate(Vector3.down * fallSpeed * Time.deltaTime);
+        if(transform.position.y > 7)
+            transform.Translate(Vector3.down * fallSpeed * Time.deltaTime);
     }
 }
