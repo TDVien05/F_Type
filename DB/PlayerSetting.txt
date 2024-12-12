@@ -1,6 +1,6 @@
 {
     "Level": "30s",
-    "Score": 8,
-    "HighScore": 8,
+    "Score": 11,
+    "HighScore": 11,
     "TypingTime": 0.0
 }

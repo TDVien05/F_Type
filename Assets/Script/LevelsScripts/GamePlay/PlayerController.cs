@@ -39,7 +39,7 @@ namespace Script.LevelsScripts.GamePlay
             yield return new WaitForSeconds(0.1f); // wait for text generation
             rb = GetComponent<Rigidbody2D>();
 			audioSource = GetComponent<AudioSource>();
-            audioSource.volume = 0.6f;
+            audioSource.volume = 0.1f;
             _isLocalText = false; // set to global scope first
             LoadObstaclesDic();
         }
@@ -203,7 +203,7 @@ namespace Script.LevelsScripts.GamePlay
         }
     
         // calculate angle for player's rotation 
-        private void RotatePlayerTowardsTarget(GameObject target)
+        protected void RotatePlayerTowardsTarget(GameObject target)
         {
             // Calculate direction to the target
             Vector2 directionToTarget = (target.transform.position - player.transform.position).normalized;
@@ -216,7 +216,7 @@ namespace Script.LevelsScripts.GamePlay
             player.transform.rotation = Quaternion.Euler(0, 0, angleToTarget);
         }
         
-        private void Shoot()
+        protected void Shoot()
         {
             Instantiate(bullet, firePoint.position, firePoint.rotation);
 			audioSource.Play();
