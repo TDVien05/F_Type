@@ -4,22 +4,26 @@ using UnityEngine.SceneManagement;
 public class GameOverManager : MonoBehaviour
 {
     private Vector3 bottomP;
+    private float bottomY;
     void Start()
     {
-        Vector3 bottomP = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0f, 0f));
-        Debug.Log("Bottom Screen Position: " + bottomP);
+        // Lấy tọa độ đáy màn hình 
+        bottomY = Camera.main.transform.position.y - Camera.main.orthographicSize;
+        Debug.Log("Calculated Bottom Y: " + bottomY);
     }
 
     void Update()
     {
-        //Kiem tra xem ke dich co cham vao day man hinh khong
+        // Kiểm tra xem kẻ địch có chạm vào đáy màn hình không
         CheckEnemiesFalling();
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.CompareTag("text"))
+        // Kiểm tra va chạm với đối tượng có tag "text"
+        if (collision.CompareTag("text"))
         {
+            Debug.Log("Trigger with tag 'text' detected!");
             GameOver();
         }
     }
@@ -28,9 +32,10 @@ public class GameOverManager : MonoBehaviour
     {
         // Lay tat ca doi tuong co tag "text"
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("text");
+
         foreach (GameObject enemy in enemies)
         {
-            if (enemy.transform.position.y < -1.5)
+            if (enemy.transform.position.y < bottomY)
             {
                 GameOver();
                 return;
@@ -39,12 +44,6 @@ public class GameOverManager : MonoBehaviour
     }
 
     private void GameOver()
-    {
-        // Cho mot thoi gian truoc khi chuyen canh
-        Invoke("LoadGameOverScene", 0f);
-    }
-
-    private void LoadGameOverScene()
     {
         // Chuyen sang scene "GameOver"
         SceneManager.LoadScene("GameOver");
