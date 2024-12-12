@@ -9,19 +9,24 @@ public class Timer : MonoBehaviour
 {
     public float time;
     public TMP_Text text;
-
+    private GameObject spawnTextBase; // Base use to spawn text in 30s, 60s, and failure
     private string _filePath;
     private Player _playerSetting; // player object to store json setting
     public Transform timerObject;
     public ChangeScene timeOver; 
     public Score currentScore;
-
+    private bool isParagraphLevel = false;
     private bool _isRunning;
 
     // Start is called before the first frame update
     void Start()
     {
         _isRunning = true;
+        spawnTextBase = GameObject.Find("Base");
+        if (spawnTextBase == null)
+        {
+            Debug.LogError("No Base");
+        } else Debug.Log("Get spawn base successfully.");
         _filePath = "DB\\PlayerSetting.txt";
         LoadSceneSetting();
     }
@@ -51,11 +56,21 @@ public class Timer : MonoBehaviour
                     Debug.Log(_playerSetting.Level);
                     time = 30;
                     text.text = Mathf.Ceil(time).ToString();
+                    isParagraphLevel = false;
                     break;
                 case "60s":
                     Debug.Log(_playerSetting.Level);
                     time = 60;
                     text.text = Mathf.Ceil(time).ToString();
+                    isParagraphLevel = false;
+                    break;
+                case "paragraph":
+                    Debug.Log(_playerSetting.Level);
+                    time = 0;
+                    currentScore.gameObject.SetActive(false);
+                    text.text = Mathf.Ceil(time).ToString();
+                    spawnTextBase.SetActive(false);
+                    isParagraphLevel = true;
                     break;
                 default:
                     Debug.Log(_playerSetting.Level); 
@@ -83,14 +98,22 @@ public class Timer : MonoBehaviour
     void Update()
     {
         if (!_isRunning) return;
-        time -= Time.deltaTime;
+        if (!isParagraphLevel)
+        {
+            time -= Time.deltaTime;
 
-        if (time <= 0)
+            if (time <= 0)
+            {
+                text.text = "0";
+                End();
+            }else
+            {
+                text.text = Mathf.Ceil(time).ToString();
+            }
+        }
+        else
         {
-            text.text = "0";
-            End();
-        }else
-        {
+            time += Time.deltaTime;
             text.text = Mathf.Ceil(time).ToString();
         }
     }
