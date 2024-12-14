@@ -13,5 +13,6 @@ namespace GameLogic
         public int Score;
         public int HighScore;
         public float TypingTime;
+        public float Accuracy;
     }
 }

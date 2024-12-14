@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
 using TMPro;
 using GameLogic;
@@ -8,6 +10,8 @@ public class SummaryScore : MonoBehaviour
 {
     public TMP_Text ScoreText;
     public TMP_Text HighScoreText;
+    public TMP_Text AccuracyText;
+    public TMP_Text TypingText;
     private Player playerSetting;
     private string settings;
     private string filePath;
@@ -31,6 +35,8 @@ public class SummaryScore : MonoBehaviour
     {
         int Score = playerSetting.Score;
         int HighScore = playerSetting.HighScore;
+        float acc =(float)Math.Round(playerSetting.Accuracy, 2) ;
+        int typingTime = (int)Math.Ceiling(playerSetting.TypingTime);
         if (Score > HighScore) 
         {
             ScoreText.text = HighScoreText.text = Score.ToString();
@@ -42,6 +48,15 @@ public class SummaryScore : MonoBehaviour
         {
             ScoreText.text = Score.ToString();
             HighScoreText.text = HighScore.ToString();
+        }
+        if (acc >= 0)
+        {
+            AccuracyText.text = acc.ToString();
+        }
+
+        if (typingTime >= 0)
+        {
+            TypingText.text = typingTime.ToString();
         }
     }
 }
