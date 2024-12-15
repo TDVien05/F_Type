@@ -11,7 +11,7 @@
     {
         public float time;
         public TMP_Text text;
-        private GameObject spawnTextBase; // Base use to spawn text in 30s, 60s, and failure
+        private GameObject spawnBase; // Base use to spawn text in 30s, 60s, failure and paragraph
         private string _filePath;
         private Player _playerSetting; // player object to store json setting
         public Transform timerObject;
@@ -23,15 +23,12 @@
         public ParagraphPlayerController _paragraphPlayerController;
         
         
+        
         // Start is called before the first frame update
         void Start()
         {
             _isRunning = true;
-            spawnTextBase = GameObject.Find("Base");
-            if (spawnTextBase == null)
-            {
-                Debug.LogError("No Base");
-            } else Debug.Log("Get spawn base successfully.");
+            spawnBase = GameObject.Find("Base");
             _filePath = "DB\\PlayerSetting.txt";
             LoadSceneSetting();
         }
@@ -61,14 +58,16 @@
                         Debug.Log(_playerSetting.Level);
                         time = 30;
                         text.text = Mathf.Ceil(time).ToString();
-                        _isParagraphLevel = false;
                         _paragraphPlayerController.enabled = false;
+                        spawnBase.GetComponent<ParagraphSpawn>().enabled = false;
+                        _isParagraphLevel = false;
                         break;
                     case "60s":
                         Debug.Log(_playerSetting.Level);
                         time = 60;
                         text.text = Mathf.Ceil(time).ToString();
                         _paragraphPlayerController.enabled = false;
+                        spawnBase.GetComponent<ParagraphSpawn>().enabled = false;
                         _isParagraphLevel = false;
                         break;
                     case "paragraph":
@@ -78,11 +77,14 @@
                         _paragraphPlayerController.enabled = true;
                         currentScore.gameObject.SetActive(false);
                         text.text = Mathf.Ceil(time).ToString();
-                        spawnTextBase.SetActive(false);
+                        spawnBase.GetComponent<SpawnSpace>().enabled = false;
                         _isParagraphLevel = true;
                         break;
                     default:
                         Debug.Log(_playerSetting.Level); 
+                        spawnBase.GetComponent<ParagraphSpawn>().enabled = false;
+                        _paragraphPlayerController.enabled = false;
+                        _isParagraphLevel = false;
                         DisableTimerGameObject(); // failure mode turn on
                         break;  
                 }
