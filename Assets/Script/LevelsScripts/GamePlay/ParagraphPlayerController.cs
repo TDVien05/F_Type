@@ -16,12 +16,14 @@ namespace Script.LevelsScripts.GamePlay
         private List<GameObject> _obstalceList;
         private int index;
         private Accuracy acc;
+        private AudioSource audio;
         
         
         // Start is called before the first frame update
         private IEnumerator Start()
         {
             yield return new WaitForSeconds(0.1f); // wait for text generation
+            audio = GetComponent<AudioSource>();
             _obstalceList = _paragraphSpawn.GetListWords();
             acc = GetComponent<Accuracy>();
             index = 0;
@@ -145,7 +147,7 @@ namespace Script.LevelsScripts.GamePlay
         private void Shoot()
         {
             Instantiate(bullet, firePoint.position, firePoint.rotation);
-            // audioSource.Play();
+            audio.Play();
         }
     }
 }

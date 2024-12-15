@@ -59,17 +59,40 @@ public class ParagraphSpawn : MonoBehaviour
     // Random lay topic
     string ChooseTopic(int number)
     {
-        string topic = "Hello worlds. Haha haha";
+        string topic = "food is essential for life providing energy " +
+                       "and nutrients to sustain the body it comes in " +
+                       "many forms from fruits vegetables grains and " +
+                       "meats to countless delicious dishes prepared " +
+                       "around the world food also brings people together " +
+                       "creating moments of joy and connection through shared " +
+                       "meals and diverse cultural traditions around the table";
         switch (number)
         {
             case 1:
-                topic = "My name is Vien. I am 20 years old. I am engineer of technology.";
+                topic = "family is a group of people connected by love " +
+                        "and support it can include parents children " +
+                        "siblings and sometimes extended relatives like " +
+                        "grandparents aunts uncles and cousins families " +
+                        "come in many forms and sizes they provide a sense of " +
+                        "belonging care and guidance through different stages of " +
+                        "life creating lasting memories together";
                 break;  
             case 2:
-                topic = "My name is Quang. I am 20 years old. I am engineer of technology.";
+                topic = "a dream is a series of thoughts or images that occur " +
+                        "in the mind during sleep it can also represent hopes " +
+                        "and aspirations for the future dreams inspire people " +
+                        "to achieve goals and overcome challenges they can be " +
+                        "personal or shared with others serving as a source of " +
+                        "motivation and creativity in life";
                 break;
             case 3: 
-                topic = "My name is Hieu. I am 20 years old. I am engineer of technology.";
+                topic = "patience is the ability to stay calm and endure " +
+                        "difficulties without frustration it helps " +
+                        "people handle challenges and wait for results " +
+                        "with understanding and resilience being patient " +
+                        "often leads to better decisions and stronger " +
+                        "relationships it is a valuable quality that brings " +
+                        "peace and allows time for growth learning and meaningful progress in life";
                 break;
         }
         return topic;
