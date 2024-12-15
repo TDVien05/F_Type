@@ -12,6 +12,8 @@ namespace Script.LevelsScripts
         public TextController textController;
         
         private AudioSource audioSource;
+        private Timer timer;
+        private Camera cam;
         
         private void Start()
         {
@@ -19,8 +21,19 @@ namespace Script.LevelsScripts
             audioSource.volume = 0.125f;
             _isTyping = false;
             _textMesh = GetComponentInChildren<TextMeshPro>();
+            
+            cam = FindObjectOfType<Camera>();
+            timer = FindObjectOfType<Timer>();
         }
 
+        void Update()
+        {
+            if (IsObjectAtbottom(_textMesh.gameObject.transform))
+            {
+                Debug.Log("Obstacle out of bound");
+                timer.End();
+            }
+        }
         // return the first character of the text
         public string GetNextText()
         {
@@ -60,6 +73,16 @@ namespace Script.LevelsScripts
                 Debug.Log("Collided with bullet and is typing.");
                 Destroy(other.gameObject);
             }
+        }
+        
+        bool IsObjectAtbottom(Transform obj)
+        {
+            // Convert the object's position to viewport coordinates
+            Vector3 viewportPoint = cam.WorldToViewportPoint(obj.position);
+
+            // Check if the object is within the viewport bounds
+            bool isAtBot =  viewportPoint.y < 0;
+            return isAtBot;
         }
     }
 }

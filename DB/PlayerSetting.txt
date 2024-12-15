@@ -1,7 +1,7 @@
 {
-    "Level": "failure",
+    "Level": "30s",
     "Score": 0,
-    "HighScore": 0,
-    "TypingTime": 9.676128387451172,
-    "Accuracy": 37.93000030517578
+    "HighScore": 35,
+    "TypingTime": 75.26709747314453,
+    "Accuracy": 41.88999938964844
 }
