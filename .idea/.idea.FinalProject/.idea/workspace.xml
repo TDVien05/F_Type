@@ -6,14 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="47793312-89a5-4752-b6f1-eec74c51ff50" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FinalProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FinalProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacle.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Canvas.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Canvas.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameOver.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameOver.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameProgression.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameProgression.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/ParagraphController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/ParagraphController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/ParagraphPlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/ParagraphPlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/ParagraphSpawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/ParagraphSpawn.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/Score.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/Score.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/SpawnSpace.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/SpawnSpace.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/TextController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/TextController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/Timer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/Timer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/ObstacleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/LevelsScripts/ObstacleController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/SceneScript/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/SceneScript/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/SummaryScripts/SummaryScore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/SummaryScripts/SummaryScore.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DB/PlayerSetting.txt" beforeDir="false" afterPath="$PROJECT_DIR$/DB/PlayerSetting.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,6 +32,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5995835e2565222bd845851833bf32626f8a8e23753c86c8cc54d6f22587cd6a/System.Globalization.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/Accuracy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.9/Scripts/Runtime/TMP_SubMeshUI.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.9/Scripts/Runtime/TMP_Text.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Text.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -114,6 +121,11 @@
       <workItem from="1733671536815" duration="18214000" />
       <workItem from="1733755566917" duration="488000" />
       <workItem from="1733756098046" duration="5658000" />
+      <workItem from="1733798550589" duration="95000" />
+      <workItem from="1733805744174" duration="651000" />
+      <workItem from="1733839518778" duration="1637000" />
+      <workItem from="1733921927242" duration="4324000" />
+      <workItem from="1734189654599" duration="8539000" />
     </task>
     <servers />
   </component>
