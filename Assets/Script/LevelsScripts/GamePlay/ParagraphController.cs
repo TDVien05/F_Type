@@ -1,25 +1,47 @@
-﻿using UnityEngine;
-using TMPro;
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
 
-namespace Script.LevelsScripts.GamePlay
+public class ParagraphController : MonoBehaviour
 {
-    public class ParagraphController : MonoBehaviour
+    public float fallSpeed = 0.1f;
+    private TMP_Text textMesh;
+    private Vector3 startPosition;
+    private ParagraphSpawn paragraphSpawn;
+
+    void Start()
     {
-        private RandomParagraph randomParagraph;
+        paragraphSpawn = FindObjectOfType<ParagraphSpawn>();
+        textMesh = GetComponent<TMP_Text>();
+        startPosition = transform.position;
+    }
 
-        // Quan ly WORD duoc sinh ra
-        private TextMeshPro textMesh; // Text cua prefabs
-        public float speed = 0.5f; // Toc do roi
-        private string[] words;
-
-        private void Start()
+    void Update()
+    {
+        MovingTextDown();
+        if (transform.position.y < 0)
         {
-        }        
+            paragraphSpawn.SetWords(textMesh);
+        }
 
-       private void Update()
-       {
-            transform.Translate(Vector3.down * speed * Time.deltaTime);
-       }
+        if (paragraphSpawn.GetIsEnd() == true)
+        {
+            Debug.Log("End");
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            Debug.Log("Va cham voi may bay.");
+        }
+    }
+
+    void MovingTextDown()
+    {
+        if(transform.position.y > 7)
+            transform.Translate(Vector3.down * fallSpeed * Time.deltaTime);
     }
 }

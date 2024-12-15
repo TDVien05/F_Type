@@ -5,27 +5,28 @@ using TMPro;
 using System.IO;
 using System;
 using GameLogic;
-using Script.LevelsScripts.GamePlay;
-
 public class Timer : MonoBehaviour
 {
-    private SpawnParagraph spawnParagraph;
-
     public float time;
     public TMP_Text text;
-
+    private GameObject spawnTextBase; // Base use to spawn text in 30s, 60s, and failure
     private string _filePath;
     private Player _playerSetting; // player object to store json setting
     public Transform timerObject;
     public ChangeScene timeOver; 
     public Score currentScore;
-
+    private bool isParagraphLevel = false;
     private bool _isRunning;
 
     // Start is called before the first frame update
     void Start()
     {
         _isRunning = true;
+        spawnTextBase = GameObject.Find("Base");
+        if (spawnTextBase == null)
+        {
+            Debug.LogError("No Base");
+        } else Debug.Log("Get spawn base successfully.");
         _filePath = "DB\\PlayerSetting.txt";
         LoadSceneSetting();
     }
@@ -55,16 +56,21 @@ public class Timer : MonoBehaviour
                     Debug.Log(_playerSetting.Level);
                     time = 30;
                     text.text = Mathf.Ceil(time).ToString();
+                    isParagraphLevel = false;
                     break;
                 case "60s":
                     Debug.Log(_playerSetting.Level);
                     time = 60;
                     text.text = Mathf.Ceil(time).ToString();
+                    isParagraphLevel = false;
                     break;
-                case "Paragraph":
+                case "paragraph":
                     Debug.Log(_playerSetting.Level);
-                    time = 10;
+                    time = 0;
+                    currentScore.gameObject.SetActive(false);
                     text.text = Mathf.Ceil(time).ToString();
+                    spawnTextBase.SetActive(false);
+                    isParagraphLevel = true;
                     break;
                 default:
                     Debug.Log(_playerSetting.Level); 
@@ -77,7 +83,6 @@ public class Timer : MonoBehaviour
             Debug.LogException(e);
         }
     }
-
 
     private void DisableTimerGameObject()
     {
@@ -92,29 +97,11 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        spawnParagraph = GetComponent<SpawnParagraph>();
-        Debug.Log("Current Level: " + _playerSetting.Level);
-        if (_playerSetting.Level == "Paragraph")
+        if (!_isRunning) return;
+        if (!isParagraphLevel)
         {
-            //if (!_isRunning) return;
-            time += Time.deltaTime;
-                Debug.Log("Da vao Paragraph");
+            time -= Time.deltaTime;
 
-            // Cap nhat diem so
-            text.text = Mathf.Ceil(time).ToString();
-            
-            if (spawnParagraph.completedText)
-            {
-                SaveTotalTime();
-                Debug.Log("Text is completed!");
-                End();
-            }
-        }
-        else 
-        {
-            if (!_isRunning) return;
-                time -= Time.deltaTime;
-                //Debug.Log("TypingTime: " + time);
             if (time <= 0)
             {
                 text.text = "0";
@@ -124,7 +111,11 @@ public class Timer : MonoBehaviour
                 text.text = Mathf.Ceil(time).ToString();
             }
         }
-        
+        else
+        {
+            time += Time.deltaTime;
+            text.text = Mathf.Ceil(time).ToString();
+        }
     }
 
     public void TimeStart()
@@ -136,7 +127,6 @@ public class Timer : MonoBehaviour
     {
         _isRunning = false;
     }
-
     private void End()
     {
         Debug.Log("End");
@@ -154,11 +144,5 @@ public class Timer : MonoBehaviour
             string currentSetting = JsonUtility.ToJson(_playerSetting, true);
             File.WriteAllText(_filePath,currentSetting);
         }
-    }
-    private void SaveTotalTime()
-    {
-        // Cap nhat thoi gian hoan thanh 
-        _playerSetting.TypingTime = time;
-        SaveCurrentScore();
     }
 }
