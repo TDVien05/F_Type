@@ -16,14 +16,13 @@ public class ParagraphSpawn : MonoBehaviour
     };
     private string[] wordsList;
     private int indexOfWordsList = 0;
-
-    private bool isEnd = false;
-
+    private bool _isEnd;
     void Start()
     {
-        SpawnAllParagraphs();
         CreateWordsList();
-        SetWordsToPrefabs();
+        SpawnAllParagraphs();
+        _isEnd = false;
+        // SetWordsToPrefabs();
     }
 
     // Ham tao words list
@@ -35,7 +34,7 @@ public class ParagraphSpawn : MonoBehaviour
     }
 
     // Spawn tat ca prefabs
-    void SpawnAllParagraphs()
+    public void SpawnAllParagraphs()
     {
         for (int i = 0; i < numberOfPrefabs; i++)
         {
@@ -45,7 +44,7 @@ public class ParagraphSpawn : MonoBehaviour
         Debug.Log("Spawned all paragraphs");
     }
     
-    // Spawn prefab
+    // Spawn paragraph prefab 
     GameObject Spawn()
     {
         float x = positions[indexOfPositions];
@@ -53,60 +52,82 @@ public class ParagraphSpawn : MonoBehaviour
         float y = spawnPoint.position.y;
         Vector3 position = new Vector3(x, y, 0);
         GameObject gameObject = Instantiate(paragraphPrefabs, position, Quaternion.identity);
+        SetWord(gameObject.GetComponentInChildren<TMP_Text>());
         return gameObject;
     }
 
     // Random lay topic
     string ChooseTopic(int number)
     {
-        string topic = "Hello worlds. Haha haha";
+        string topic = "food is essential for life providing energy " +
+                       "and nutrients to sustain the body it comes in " +
+                       "many forms from fruits vegetables grains and " +
+                       "meats to countless delicious dishes prepared " +
+                       "around the world food also brings people together " +
+                       "creating moments of joy and connection through shared " +
+                       "meals and diverse cultural traditions around the table";
         switch (number)
         {
             case 1:
-                topic = "My name is Vien. I am 20 years old. I am a engineer of technology.";
+                topic = "family is a group of people connected by love " +
+                        "and support it can include parents children " +
+                        "siblings and sometimes extended relatives like " +
+                        "grandparents aunts uncles and cousins families " +
+                        "come in many forms and sizes they provide a sense of " +
+                        "belonging care and guidance through different stages of " +
+                        "life creating lasting memories together";
                 break;  
             case 2:
-                topic = "My name is Quang. I am 20 years old. I am a engineer of technology.";
+                topic = "a dream is a series of thoughts or images that occur " +
+                        "in the mind during sleep it can also represent hopes " +
+                        "and aspirations for the future dreams inspire people " +
+                        "to achieve goals and overcome challenges they can be " +
+                        "personal or shared with others serving as a source of " +
+                        "motivation and creativity in life";
                 break;
             case 3: 
-                topic = "My name is Hieu. I am 20 years old. I am a engineer of technology.";
+                topic = "patience is the ability to stay calm and endure " +
+                        "difficulties without frustration it helps " +
+                        "people handle challenges and wait for results " +
+                        "with understanding and resilience being patient " +
+                        "often leads to better decisions and stronger " +
+                        "relationships it is a valuable quality that brings " +
+                        "peace and allows time for growth learning and meaningful progress in life";
                 break;
         }
         return topic;
     }
 
     // Set cho all prefabs tu ban dau
-    void SetWordsToPrefabs()
+    public void SetWordsToPrefabs()
     {
         Debug.Log("The size of array of prefabs : " + spawnedparagraphs.Count);
         Debug.Log("The size of words list : " + wordsList.Length);
         for (int i = 0; i < spawnedparagraphs.Count; i++)
         {
-            SetWords(spawnedparagraphs[i].GetComponentInChildren<TMP_Text>());
-            Debug.Log(spawnedparagraphs[i].GetComponentInChildren<TMP_Text>().text);
+            SetWord(spawnedparagraphs[i].GetComponentInChildren<TMP_Text>());
         }
     }
 
     // Set chu tu topic vao prefabs
-    public void SetWords(TMP_Text Text)
+    public void SetWord(TMP_Text Text)
     {
+        if (indexOfWordsList >= wordsList.Length)
+        {
+            _isEnd = true;
+            return;
+        }
         Debug.Log("The index of words list is : " + indexOfWordsList);
         Text.text = wordsList[indexOfWordsList];
         indexOfWordsList++;
-        if (indexOfWordsList >= wordsList.Length)
-        {
-            isEnd = true;
-        }
     }
 
-    public bool GetIsEnd()
-    {
-        return isEnd;
-    }
-
+    public bool IsEnd() { return _isEnd; }
     // Lay ra chuoi topic
-    public string[] GetListWords()
+    
+    public void ResetIndexPosition() { indexOfPositions = 0; }
+    public List<GameObject> GetListWords()
     {
-        return wordsList;
+        return spawnedparagraphs;
     }
 }

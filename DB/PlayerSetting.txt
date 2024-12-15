@@ -1,6 +1,7 @@
 {
     "Level": "paragraph",
-    "Score": 1,
-    "HighScore": 2,
-    "TypingTime": 0.0
+    "Score": 0,
+    "HighScore": 0,
+    "TypingTime": 8.913591384887696,
+    "Accuracy": 85.70999908447266
 }

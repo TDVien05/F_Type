@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="26c4ddcc-85bc-49fc-9d04-b4a3e8a87550" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Timer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Timer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../DB/PlayerSetting.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../DB/PlayerSetting.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,6 +30,7 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/SpawnSpace.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TextController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../ObstacleController.cs" root0="SKIP_HIGHLIGHTING" />
@@ -45,7 +47,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Quang/Mechanic/Shooting&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -67,6 +69,10 @@
       <workItem from="1733372007736" duration="523000" />
       <workItem from="1733823500989" duration="1196000" />
       <workItem from="1733841212955" duration="453000" />
+      <workItem from="1734235520784" duration="267000" />
+      <workItem from="1734235860220" duration="84000" />
+      <workItem from="1734236146556" duration="77000" />
+      <workItem from="1734236610812" duration="134000" />
     </task>
     <servers />
   </component>

@@ -32,14 +32,14 @@ namespace Script.LevelsScripts.GamePlay
         public Camera cam;
         public Score scoreController;
         public Timer timer;
-        
-        
+        private Accuracy acc;
         private IEnumerator Start()
         {
             yield return new WaitForSeconds(0.1f); // wait for text generation
             rb = GetComponent<Rigidbody2D>();
 			audioSource = GetComponent<AudioSource>();
-            audioSource.volume = 0.6f;
+            audioSource.volume = 0.1f;
+            acc = GetComponent<Accuracy>();
             _isLocalText = false; // set to global scope first
             LoadObstaclesDic();
         }
@@ -102,6 +102,7 @@ namespace Script.LevelsScripts.GamePlay
             {
                 if (_localTextMap.ContainsKey(key))
                 {
+                    acc.SetCorrectChar(1);
                     TextMeshPro obstacleText = _localTextMap[key];
                     RotatePlayerTowardsTarget(obstacleText.gameObject);
                     Shoot();
@@ -118,6 +119,7 @@ namespace Script.LevelsScripts.GamePlay
                 else
                 {
                     Debug.Log($"{key} key not found in local text map");
+                    acc.SetIncorrectChar(1);
                 }
             }
             else
@@ -131,6 +133,7 @@ namespace Script.LevelsScripts.GamePlay
                     // if is valid key and is visible by player
                     if (IsObjectVisible(obstacleText.transform))
                     {
+                        acc.SetCorrectChar(1);
                         RotatePlayerTowardsTarget(obstacleText.gameObject);
                         Shoot();
                         // turn to local text context
@@ -146,6 +149,7 @@ namespace Script.LevelsScripts.GamePlay
                 else
                 {
                     Debug.Log($"{key} key not found in obstacle map");
+                    acc.SetIncorrectChar(1);
                 }
             }
             // reset map if player have typed all words on the scene
@@ -203,7 +207,7 @@ namespace Script.LevelsScripts.GamePlay
         }
     
         // calculate angle for player's rotation 
-        private void RotatePlayerTowardsTarget(GameObject target)
+        protected void RotatePlayerTowardsTarget(GameObject target)
         {
             // Calculate direction to the target
             Vector2 directionToTarget = (target.transform.position - player.transform.position).normalized;
@@ -216,7 +220,7 @@ namespace Script.LevelsScripts.GamePlay
             player.transform.rotation = Quaternion.Euler(0, 0, angleToTarget);
         }
         
-        private void Shoot()
+        protected void Shoot()
         {
             Instantiate(bullet, firePoint.position, firePoint.rotation);
 			audioSource.Play();
