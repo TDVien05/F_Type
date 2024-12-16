@@ -1,7 +1,15 @@
 {
+<<<<<<< HEAD
     "Level": "failure",
     "Score": 3,
     "HighScore": 18,
     "TypingTime": 15.104527473449707,
     "Accuracy": 88.23999786376953
+=======
+    "Level": "paragraph",
+    "Score": 8,
+    "HighScore": 10,
+    "TypingTime": 22.665327072143556,
+    "Accuracy": 91.48999786376953
+>>>>>>> main
 }
