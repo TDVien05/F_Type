@@ -10,7 +10,8 @@ namespace Script.LevelsScripts.GamePlay
         public float speed = 5f;
         private Rigidbody2D rb;
         private Vector2 movement;
-		private AudioSource audioSource;
+		public AudioSource shootAudio;
+        public AudioSource warningAudio;
 
         /// <summary>
         /// Mapping words and their position using dictionary collection
@@ -37,8 +38,8 @@ namespace Script.LevelsScripts.GamePlay
         {
             yield return new WaitForSeconds(0.1f); // wait for text generation
             rb = GetComponent<Rigidbody2D>();
-			audioSource = GetComponent<AudioSource>();
-            audioSource.volume = 0.1f;
+            shootAudio.volume = 0.1f;
+            warningAudio.volume = 0.5f;
             acc = GetComponent<Accuracy>();
             _isLocalText = false; // set to global scope first
             LoadObstaclesDic();
@@ -119,6 +120,7 @@ namespace Script.LevelsScripts.GamePlay
                 else
                 {
                     Debug.Log($"{key} key not found in local text map");
+                    warningAudio.Play();
                     acc.SetIncorrectChar(1);
                 }
             }
@@ -143,12 +145,14 @@ namespace Script.LevelsScripts.GamePlay
                     }
                     else
                     {
+                        warningAudio.Play();
                         Debug.Log(obstacleText.text + " isn't visible");
                     }
                 }
                 else
                 {
                     Debug.Log($"{key} key not found in obstacle map");
+                    warningAudio.Play();
                     acc.SetIncorrectChar(1);
                 }
             }
@@ -223,7 +227,7 @@ namespace Script.LevelsScripts.GamePlay
         protected void Shoot()
         {
             Instantiate(bullet, firePoint.position, firePoint.rotation);
-			audioSource.Play();
+            shootAudio.Play();
         }
     }
 }

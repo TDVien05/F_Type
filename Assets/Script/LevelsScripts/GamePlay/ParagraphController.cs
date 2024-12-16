@@ -12,6 +12,7 @@ public class ParagraphController : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        audioSource.volume = 0.125f;
         textMesh = GetComponent<TMP_Text>();
     }
 
