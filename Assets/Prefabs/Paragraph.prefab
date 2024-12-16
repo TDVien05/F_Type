@@ -54,15 +54,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8728162451347023011, guid: d541b6dcb8a51a74da89aad58d5b9f11, type: 3}
       propertyPath: m_fontSize
-      value: 1.9
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8728162451347023011, guid: d541b6dcb8a51a74da89aad58d5b9f11, type: 3}
+      propertyPath: m_margin.w
+      value: 1.9787439
       objectReference: {fileID: 0}
     - target: {fileID: 8728162451347023011, guid: d541b6dcb8a51a74da89aad58d5b9f11, type: 3}
       propertyPath: m_margin.x
-      value: 9.374164
+      value: 9.310658
+      objectReference: {fileID: 0}
+    - target: {fileID: 8728162451347023011, guid: d541b6dcb8a51a74da89aad58d5b9f11, type: 3}
+      propertyPath: m_margin.y
+      value: 1.965017
       objectReference: {fileID: 0}
     - target: {fileID: 8728162451347023011, guid: d541b6dcb8a51a74da89aad58d5b9f11, type: 3}
       propertyPath: m_margin.z
-      value: 9.362275
+      value: 9.301793
       objectReference: {fileID: 0}
     - target: {fileID: 8728162451347023011, guid: d541b6dcb8a51a74da89aad58d5b9f11, type: 3}
       propertyPath: m_fontStyle
@@ -82,7 +90,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8728162451347023011, guid: d541b6dcb8a51a74da89aad58d5b9f11, type: 3}
       propertyPath: m_fontSizeMax
-      value: 1.9
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 8728162451347023011, guid: d541b6dcb8a51a74da89aad58d5b9f11, type: 3}
       propertyPath: m_fontColor32.rgba
