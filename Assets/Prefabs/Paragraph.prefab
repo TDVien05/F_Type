@@ -50,7 +50,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6322524622543544599, guid: d541b6dcb8a51a74da89aad58d5b9f11, type: 3}
       propertyPath: m_Name
-      value: ParagraphObstacle Variant
+      value: Paragraph
+      objectReference: {fileID: 0}
+    - target: {fileID: 8728162451347023011, guid: d541b6dcb8a51a74da89aad58d5b9f11, type: 3}
+      propertyPath: m_fontSize
+      value: 1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8728162451347023011, guid: d541b6dcb8a51a74da89aad58d5b9f11, type: 3}
+      propertyPath: m_margin.x
+      value: 9.374164
+      objectReference: {fileID: 0}
+    - target: {fileID: 8728162451347023011, guid: d541b6dcb8a51a74da89aad58d5b9f11, type: 3}
+      propertyPath: m_margin.z
+      value: 9.362275
       objectReference: {fileID: 0}
     - target: {fileID: 8728162451347023011, guid: d541b6dcb8a51a74da89aad58d5b9f11, type: 3}
       propertyPath: m_fontStyle
@@ -67,6 +79,10 @@ PrefabInstance:
     - target: {fileID: 8728162451347023011, guid: d541b6dcb8a51a74da89aad58d5b9f11, type: 3}
       propertyPath: m_fontColor.r
       value: 0.96981126
+      objectReference: {fileID: 0}
+    - target: {fileID: 8728162451347023011, guid: d541b6dcb8a51a74da89aad58d5b9f11, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 1.9
       objectReference: {fileID: 0}
     - target: {fileID: 8728162451347023011, guid: d541b6dcb8a51a74da89aad58d5b9f11, type: 3}
       propertyPath: m_fontColor32.rgba
