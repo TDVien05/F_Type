@@ -6,49 +6,47 @@
   <component name="ChangeListManager">
     <list default="true" id="47793312-89a5-4752-b6f1-eec74c51ff50" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FinalProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FinalProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameProgression.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameProgression.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/BackgroundController.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/BackgroundController/ChangeBackground.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/BackgroundController/ChangeBackground.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/BackgroundController/RepeatBg.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/BackgroundController/RepeatBg.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/BackgroundController/RepeatBgHorizontal.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/BackgroundController/RepeatBgHorizontal.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/BulletController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/BulletController.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/.idea/indexLayout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/.idea/projectSettingsUpdater.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/Accuracy.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/Accuracy.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/ParagraphController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/ParagraphController.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/ParagraphPlayerController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/ParagraphPlayerController.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/ParagraphSpawn.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/ParagraphSpawn.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/PlayerController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/PlayerController.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/Score.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/Score.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/SpawnSpace.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/SpawnSpace.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/TextController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/TextController.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/Timer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/Timer.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/ObstacleController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/ObstacleController.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/SceneScript/Player.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/SceneScript/Player.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/SummaryScripts/SummaryScore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/SummaryScripts/SummaryScore.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB/PlayerSetting.txt" beforeDir="false" afterPath="$PROJECT_DIR$/DB/PlayerSetting.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/BackgroundController.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/BackgroundController/ChangeBackground.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/BackgroundController/ChangeBackground.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/BackgroundController/RepeatBg.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/BackgroundController/RepeatBg.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/BackgroundController/RepeatBgHorizontal.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/BackgroundController/RepeatBgHorizontal.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GameOverScene/Accuracy.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/GameOverScene/Accuracy.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GameOverScene/Score.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/GameOverScene/Score.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GameOverScene/Timer.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/GameOverScene/Timer.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GamePlay.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GamePlay/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GamePlay/.idea/indexLayout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GamePlay/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GamePlay/BulletController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GamePlay/BulletController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GamePlay/ObstacleController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GamePlay/ObstacleController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GamePlay/ParagraphControl.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GamePlay/ParagraphControl/ParagraphController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GamePlay/ParagraphControl/ParagraphController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GamePlay/ParagraphControl/ParagraphPlayerController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GamePlay/ParagraphControl/ParagraphPlayerController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GamePlay/ParagraphControl/ParagraphSpawn.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GamePlay/ParagraphControl/ParagraphSpawn.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GamePlay/TextControl.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GamePlay/TextControl/PlayerController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GamePlay/TextControl/PlayerController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GamePlay/TextControl/SpawnSpace.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GamePlay/TextControl/SpawnSpace.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GamePlay/TextControl/TextController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GamePlay/TextControl/TextController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/ProgressionScripts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ProgressionScripts.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/ProgressionScripts/GamePlay/Properties.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/ProgressionScripts/GamePlay/Properties/Accuracy.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/ProgressionScripts/GamePlay/Properties/Accuracy.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/ProgressionScripts/GamePlay/Properties/Score.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/ProgressionScripts/GamePlay/Properties/Score.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/ProgressionScripts/GamePlay/Properties/Timer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/ProgressionScripts/GamePlay/Properties/Timer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/PauseButton.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/PauseButton.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +61,6 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5995835e2565222bd845851833bf32626f8a8e23753c86c8cc54d6f22587cd6a/System.Globalization.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/Accuracy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.9/Scripts/Runtime/TMP_SubMeshUI.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.9/Scripts/Runtime/TMP_Text.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Text.cs" root0="SKIP_HIGHLIGHTING" />
@@ -158,6 +155,7 @@
       <workItem from="1734189654599" duration="8539000" />
       <workItem from="1734271442541" duration="5830000" />
       <workItem from="1734322748680" duration="4166000" />
+      <workItem from="1734358861239" duration="784000" />
     </task>
     <servers />
   </component>
