@@ -1,16 +1,18 @@
-    using System.Collections;
-    using System.Collections.Generic;
-    using UnityEngine;
-    using TMPro;
-    using System.IO;
-    using System;
-    using GameLogic;
-    using Script.LevelsScripts.GamePlay;
+using System;
+using System.Collections;
+using System.IO;
+using GameLogic;
+using Script.LevelsScripts.GamePlay;
+using TMPro;
+using UnityEngine;
 
+namespace Script.ProgressionScripts.GamePlay.Properties
+{
     public class Timer : MonoBehaviour
     {
         public float time;
         private float _maxTime = 10000f;
+        private float _currentTime = 0f;
         public TMP_Text text;
         private GameObject spawnBase; // Base use to spawn text in 30s, 60s, failure and paragraph
         private string _filePath;
@@ -20,10 +22,11 @@
         public Score currentScore;
         private bool _isParagraphLevel = false;
         private bool _isRunning;
-        public PlayerController _playerController;
+        public PlayerController.PlayerController _playerController;
         public ParagraphPlayerController _paragraphPlayerController;
         private bool _isFailureMode;
-        
+
+        private bool isPaused = false;
         // Start is called before the first frame update
         void Start()
         {
@@ -87,9 +90,10 @@
                         spawnBase.GetComponent<ParagraphSpawn>().enabled = false;
                         _paragraphPlayerController.enabled = false;
                         _isParagraphLevel = false;
+                        _isFailureMode = true;
                         time = 0;
                         text.text = Mathf.Ceil(time).ToString();
-                        _isFailureMode = true;
+                        
                         break;  
                 }
             }
@@ -106,7 +110,7 @@
             if (!_isParagraphLevel && !_isFailureMode)
             {
                 time -= Time.deltaTime;
-
+                _currentTime += Time.deltaTime;
                 if (time <= 0)
                 {
                     text.text = "0";
@@ -132,11 +136,13 @@
         {
             _isRunning = true;
         }
-
+       
         public void TimePause()
         {
             _isRunning = false;
         }
+        
+        
         public void End()
         {
             Debug.Log("End");
@@ -157,15 +163,20 @@
             {
                 _playerSetting.TypingTime = time;
                 acc = _paragraphPlayerController.GetComponent<Accuracy>().CalculateAccuracy();
+            }else if (_playerSetting.Level == "failure")
+            {
+                _playerSetting.TypingTime = time;
+                acc = _playerController.GetComponent<Accuracy>().CalculateAccuracy();
             }
             else
             {
+                _playerSetting.TypingTime = _currentTime;
                 acc = _playerController.GetComponent<Accuracy>().CalculateAccuracy();
             }
-            _playerSetting.TypingTime = time;
 
             _playerSetting.Accuracy =  (float)Math.Round(acc, 2);
             string currentSetting = JsonUtility.ToJson(_playerSetting, true);
             File.WriteAllText(_filePath,currentSetting);
         }
     }
+}

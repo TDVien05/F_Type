@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Script.ProgressionScripts.GamePlay.Properties;
 using Script.SceneScript;
 using UnityEngine;
 using TMPro;

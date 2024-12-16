@@ -1,5 +1,6 @@
 using System;
 using Script.LevelsScripts.GamePlay;
+using Script.ProgressionScripts.GamePlay.Properties;
 using UnityEngine;
 using TMPro;
 namespace Script.LevelsScripts

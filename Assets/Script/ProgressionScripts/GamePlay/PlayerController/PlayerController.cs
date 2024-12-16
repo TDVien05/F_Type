@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Script.LevelsScripts;
+using Script.LevelsScripts.GamePlay;
+using Script.ProgressionScripts.GamePlay.Properties;
 using Script.SceneScript;
-using UnityEngine;
 using TMPro;
-namespace Script.LevelsScripts.GamePlay
+using UnityEngine;
+
+namespace Script.ProgressionScripts.GamePlay.PlayerController
 {
     public class PlayerController : MonoBehaviour
     {
@@ -35,6 +39,7 @@ namespace Script.LevelsScripts.GamePlay
         public Timer timer;
         public PauseButtom pause;
         private Accuracy acc;
+
         private IEnumerator Start()
         {
             yield return new WaitForSeconds(0.1f); // wait for text generation
@@ -50,6 +55,7 @@ namespace Script.LevelsScripts.GamePlay
         void Update()
         {
             if (pause.IsPaused()) return;
+            
             if (Input.anyKeyDown)
             {
                 string key = Input.inputString;

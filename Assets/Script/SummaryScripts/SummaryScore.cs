@@ -53,10 +53,41 @@ public class SummaryScore : MonoBehaviour
         {
             AccuracyText.text = acc.ToString();
         }
-
-        if (typingTime >= 0)
+        
+        switch (playerSetting.Level)
         {
-            TypingText.text = typingTime.ToString();
+            case "30s":
+                if (playerSetting.TypingTime > 30)
+                {
+                    TypingText.text = "30";
+                }
+                else
+                {
+                    if (typingTime >= 0)
+                    {
+                        TypingText.text = typingTime.ToString();
+                    }
+                }
+                break;
+            case "60s":
+                if (playerSetting.TypingTime > 30)
+                {
+                    TypingText.text = "60";
+                }
+                else
+                {
+                    if (typingTime >= 0)
+                    {
+                        TypingText.text = typingTime.ToString();
+                    }
+                }
+                break;
+            default:
+                if (typingTime >= 0)
+                {
+                    TypingText.text = typingTime.ToString();
+                }
+                break;
         }
     }
 }
