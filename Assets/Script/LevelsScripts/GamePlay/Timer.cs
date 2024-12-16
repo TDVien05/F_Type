@@ -10,6 +10,7 @@
     public class Timer : MonoBehaviour
     {
         public float time;
+        private float _maxTime = 10000f;
         public TMP_Text text;
         private GameObject spawnBase; // Base use to spawn text in 30s, 60s, failure and paragraph
         private string _filePath;
@@ -21,8 +22,7 @@
         private bool _isRunning;
         public PlayerController _playerController;
         public ParagraphPlayerController _paragraphPlayerController;
-        
-        
+        private bool _isFailureMode;
         
         // Start is called before the first frame update
         void Start()
@@ -61,6 +61,7 @@
                         _paragraphPlayerController.enabled = false;
                         spawnBase.GetComponent<ParagraphSpawn>().enabled = false;
                         _isParagraphLevel = false;
+                        _isFailureMode = false;
                         break;
                     case "60s":
                         Debug.Log(_playerSetting.Level);
@@ -69,6 +70,7 @@
                         _paragraphPlayerController.enabled = false;
                         spawnBase.GetComponent<ParagraphSpawn>().enabled = false;
                         _isParagraphLevel = false;
+                        _isFailureMode = false;
                         break;
                     case "paragraph":
                         Debug.Log(_playerSetting.Level);
@@ -85,7 +87,9 @@
                         spawnBase.GetComponent<ParagraphSpawn>().enabled = false;
                         _paragraphPlayerController.enabled = false;
                         _isParagraphLevel = false;
-                        DisableTimerGameObject(); // failure mode turn on
+                        time = 0;
+                        text.text = Mathf.Ceil(time).ToString();
+                        _isFailureMode = true;
                         break;  
                 }
             }
@@ -94,22 +98,12 @@
                 Debug.LogException(e);
             }
         }
-
-        private void DisableTimerGameObject()
-        {
-            try
-            {
-                timerObject.gameObject.SetActive(false);
-            }catch(Exception e)
-            {
-                Debug.Log(e);
-            }
-        }
+        
         // Update is called once per frame
         void Update()
         {
             if (!_isRunning) return;
-            if (!_isParagraphLevel)
+            if (!_isParagraphLevel && !_isFailureMode)
             {
                 time -= Time.deltaTime;
 
@@ -126,6 +120,11 @@
             {
                 time += Time.deltaTime;
                 text.text = Mathf.Ceil(time).ToString();
+                if (Mathf.Approximately(time, _maxTime))
+                {
+                    End();
+                    Debug.Log("Reach max time");
+                }
             }
         }
 
@@ -161,10 +160,9 @@
             }
             else
             {
-                _playerSetting.TypingTime = 0;
                 acc = _playerController.GetComponent<Accuracy>().CalculateAccuracy();
-                    ;
             }
+            _playerSetting.TypingTime = time;
 
             _playerSetting.Accuracy =  (float)Math.Round(acc, 2);
             string currentSetting = JsonUtility.ToJson(_playerSetting, true);

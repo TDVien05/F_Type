@@ -6,18 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="47793312-89a5-4752-b6f1-eec74c51ff50" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FinalProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FinalProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Canvas.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Canvas.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacle.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameOver.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameOver.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameProgression.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameProgression.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/ParagraphController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/ParagraphController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/BackgroundController/RepeatBg.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/LevelsScripts/BackgroundController/RepeatBg.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/ParagraphPlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/ParagraphPlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/ParagraphSpawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/ParagraphSpawn.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/TextController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/TextController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/Timer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/Timer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/SceneScript/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/SceneScript/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/SummaryScripts/SummaryScore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/SummaryScripts/SummaryScore.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/ObstacleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/LevelsScripts/ObstacleController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/SceneScript/PauseButtom.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/SceneScript/PauseButtom.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DB/PlayerSetting.txt" beforeDir="false" afterPath="$PROJECT_DIR$/DB/PlayerSetting.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -126,6 +124,7 @@
       <workItem from="1733839518778" duration="1637000" />
       <workItem from="1733921927242" duration="4324000" />
       <workItem from="1734189654599" duration="8539000" />
+      <workItem from="1734271442541" duration="5830000" />
     </task>
     <servers />
   </component>

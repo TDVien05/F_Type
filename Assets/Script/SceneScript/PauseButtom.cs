@@ -22,5 +22,7 @@ namespace Script.SceneScript
                 isPaused = true;
             }
         }
+        
+        public bool IsPaused() {return isPaused;}
     }
 }

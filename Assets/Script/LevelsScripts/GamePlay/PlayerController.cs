@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Script.SceneScript;
 using UnityEngine;
 using TMPro;
 namespace Script.LevelsScripts.GamePlay
@@ -32,6 +33,7 @@ namespace Script.LevelsScripts.GamePlay
         public Camera cam;
         public Score scoreController;
         public Timer timer;
+        public PauseButtom pause;
         private Accuracy acc;
         private IEnumerator Start()
         {
@@ -47,6 +49,7 @@ namespace Script.LevelsScripts.GamePlay
         // Check player's input key for every frames
         void Update()
         {
+            if (pause.IsPaused()) return;
             if (Input.anyKeyDown)
             {
                 string key = Input.inputString;
@@ -207,7 +210,7 @@ namespace Script.LevelsScripts.GamePlay
         }
     
         // calculate angle for player's rotation 
-        protected void RotatePlayerTowardsTarget(GameObject target)
+        private void RotatePlayerTowardsTarget(GameObject target)
         {
             // Calculate direction to the target
             Vector2 directionToTarget = (target.transform.position - player.transform.position).normalized;
@@ -219,8 +222,8 @@ namespace Script.LevelsScripts.GamePlay
             // Apply rotation
             player.transform.rotation = Quaternion.Euler(0, 0, angleToTarget);
         }
-        
-        protected void Shoot()
+
+        private void Shoot()
         {
             Instantiate(bullet, firePoint.position, firePoint.rotation);
 			audioSource.Play();
