@@ -7,12 +7,13 @@ public class ParagraphController : MonoBehaviour
 {
     public float fallSpeed = 0.1f;
     private TMP_Text textMesh;
-    private Vector3 startPosition;
+    private AudioSource audioSource;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.volume = 0.125f;
         textMesh = GetComponent<TMP_Text>();
-        startPosition = transform.position;
     }
 
     void Update()
@@ -32,6 +33,7 @@ public class ParagraphController : MonoBehaviour
         if (other.CompareTag("bullet"))
         {
             Destroy(other.gameObject);
+            audioSource.Play();
         }
     }
 }

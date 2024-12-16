@@ -17,15 +17,17 @@ namespace Script.LevelsScripts.GamePlay
         private List<GameObject> _obstalceList;
         private int index;
         private Accuracy acc;
-        private AudioSource audio;
-        public PauseButtom pause;
+        public AudioSource shootAudio;
+        public AudioSource warningAudio;
+
         
         // Start is called before the first frame update
         private IEnumerator Start()
         {
             yield return new WaitForSeconds(0.1f); // wait for text generation
-            audio = GetComponent<AudioSource>();
             _obstalceList = _paragraphSpawn.GetListWords();
+            shootAudio.volume = 0.1f;
+            warningAudio.volume = 0.5f;
             acc = GetComponent<Accuracy>();
             index = 0;
             Debug.Log("number of words: " + _obstalceList.Count);
@@ -75,6 +77,7 @@ namespace Script.LevelsScripts.GamePlay
                 RotatePlayerTowardsTarget(_obstalceList[index].GetComponentInChildren<TMP_Text>().gameObject);
                 acc.SetIncorrectChar(1);
                 Debug.Log("Wrong key");
+                warningAudio.Play();
             }
             UpdateWord();
             
@@ -156,7 +159,8 @@ namespace Script.LevelsScripts.GamePlay
         private void Shoot()
         {
             Instantiate(bullet, firePoint.position, firePoint.rotation);
-            audio.Play();
+            shootAudio
+                .Play();
         }
     }
 }

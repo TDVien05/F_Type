@@ -58,12 +58,12 @@ public class SpawnSpace : MonoBehaviour
 
     public float RanDomX()
     {
-        float randomX = Random.Range(-9f, 9);
+        float randomX = Random.Range(-8f, 8);
         do
         {
             if (checkSpawnSpaceX.Contains(randomX))
             {
-                randomX = Random.Range(-9f, 9);
+                randomX = Random.Range(-8f, 8);
             } else
             {
                 checkSpawnSpaceX.Add(randomX);
