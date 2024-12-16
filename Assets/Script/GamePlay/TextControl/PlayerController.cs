@@ -102,6 +102,12 @@ namespace Script.LevelsScripts.GamePlay
         /// <param name="key"> input key from player </param>
         void CheckInputKey(string key)
         {
+            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) ||
+                Input.GetKeyDown(KeyCode.CapsLock) || Input.GetMouseButtonDown(2))
+            {
+                Debug.Log("Mouse or capsLock input detected, ignoring.");
+                return;
+            }
             if (_isLocalText)
             {
                 if (_localTextMap.ContainsKey(key))

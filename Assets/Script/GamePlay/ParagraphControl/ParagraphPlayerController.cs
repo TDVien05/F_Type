@@ -20,7 +20,7 @@ namespace Script.LevelsScripts.GamePlay
         public AudioSource shootAudio;
         public AudioSource warningAudio;
         public PauseButtom pause;
-
+        public Score score;
         
         // Start is called before the first frame update
         private IEnumerator Start()
@@ -93,8 +93,8 @@ namespace Script.LevelsScripts.GamePlay
             }
             else
             {
-                // Clear the word in the current obstacle
                 _obstalceList[index].GetComponentInChildren<TMP_Text>().text = "";
+                score.UpdateScore(1);
             }
 
             // Get the remaining part of the current paragraph word

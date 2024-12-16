@@ -37,7 +37,7 @@ public class SummaryScore : MonoBehaviour
         int HighScore = playerSetting.HighScore;
         float acc =(float)Math.Round(playerSetting.Accuracy, 2) ;
         int typingTime = (int)Math.Ceiling(playerSetting.TypingTime);
-        if (Score > HighScore) 
+        if (Score > HighScore && playerSetting.Level != "paragraph") 
         {
             ScoreText.text = HighScoreText.text = Score.ToString();
             playerSetting.HighScore = Score;
@@ -54,9 +54,42 @@ public class SummaryScore : MonoBehaviour
             AccuracyText.text = acc.ToString();
         }
 
-        if (typingTime >= 0)
+        
+
+        switch (playerSetting.Level)
         {
-            TypingText.text = typingTime.ToString();
+            case "30s":
+                if (typingTime > 30)
+                {
+                    TypingText.text = "30";
+                }
+                else
+                {
+                    if (typingTime >= 0)
+                    {
+                        TypingText.text = typingTime.ToString();
+                    }
+                }
+                break;
+            case "60s":
+                if (typingTime > 60)
+                {
+                    TypingText.text = "30";
+                }
+                else
+                {
+                    if (typingTime >= 0)
+                    {
+                        TypingText.text = typingTime.ToString();
+                    }
+                }
+                break;
+            default:
+                if (typingTime >= 0)
+                {
+                    TypingText.text = typingTime.ToString();
+                }
+                break;
         }
     }
 }

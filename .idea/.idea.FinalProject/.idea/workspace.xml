@@ -6,16 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="47793312-89a5-4752-b6f1-eec74c51ff50" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FinalProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FinalProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacle.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameOver.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameOver.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameProgression.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameProgression.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/BackgroundController/RepeatBg.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/LevelsScripts/BackgroundController/RepeatBg.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/ParagraphPlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/ParagraphPlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/TextController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/TextController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/Timer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/LevelsScripts/GamePlay/Timer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/LevelsScripts/ObstacleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/LevelsScripts/ObstacleController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/SceneScript/PauseButtom.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/SceneScript/PauseButtom.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GameOverScene/SummaryScore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/GameOverScene/SummaryScore.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GameOverScene/Timer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/GameOverScene/Timer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GamePlay/BulletController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GamePlay/BulletController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GamePlay/ObstacleController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GamePlay/ObstacleController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GamePlay/ParagraphControl/ParagraphPlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/GamePlay/ParagraphControl/ParagraphPlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GamePlay/TextControl/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/GamePlay/TextControl/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/ProgressionScripts/GamePlay/.idea/projectSettingsUpdater.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/ProgressionScripts/GamePlay/.idea/workspace.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/DB/PlayerSetting.txt" beforeDir="false" afterPath="$PROJECT_DIR$/DB/PlayerSetting.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,20 +48,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Quang/Mechanic/Shooting&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "Quang__New-Mechanic-Shooting",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="E:\Unity\Editor\2022.3.37f1\Editor\Unity.exe" />
@@ -125,6 +128,7 @@
       <workItem from="1733921927242" duration="4324000" />
       <workItem from="1734189654599" duration="8539000" />
       <workItem from="1734271442541" duration="5830000" />
+      <workItem from="1734361660927" duration="1199000" />
     </task>
     <servers />
   </component>

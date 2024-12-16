@@ -10,6 +10,7 @@
     public class Timer : MonoBehaviour
     {
         public float time;
+        private float _currentTime;
         private float _maxTime = 10000f;
         public TMP_Text text;
         private GameObject spawnBase; // Base use to spawn text in 30s, 60s, failure and paragraph
@@ -27,6 +28,7 @@
         // Start is called before the first frame update
         void Start()
         {
+            _currentTime = 0; 
             _isRunning = true;
             spawnBase = GameObject.Find("Base");
             _filePath = "DB\\PlayerSetting.txt";
@@ -106,7 +108,7 @@
             if (!_isParagraphLevel && !_isFailureMode)
             {
                 time -= Time.deltaTime;
-
+                _currentTime += Time.deltaTime;
                 if (time <= 0)
                 {
                     text.text = "0";
@@ -157,12 +159,16 @@
             {
                 _playerSetting.TypingTime = time;
                 acc = _paragraphPlayerController.GetComponent<Accuracy>().CalculateAccuracy();
+            }else if (_playerSetting.Level == "failure")
+            {
+                _playerSetting.TypingTime = time;
+                acc = _playerController.GetComponent<Accuracy>().CalculateAccuracy();
             }
             else
             {
+                _playerSetting.TypingTime = _currentTime;
                 acc = _playerController.GetComponent<Accuracy>().CalculateAccuracy();
             }
-            _playerSetting.TypingTime = time;
 
             _playerSetting.Accuracy =  (float)Math.Round(acc, 2);
             string currentSetting = JsonUtility.ToJson(_playerSetting, true);

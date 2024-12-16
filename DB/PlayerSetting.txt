@@ -1,7 +1,7 @@
 {
-    "Level": "paragraph",
-    "Score": 8,
-    "HighScore": 10,
-    "TypingTime": 22.665327072143556,
-    "Accuracy": 91.48999786376953
+    "Level": "30s",
+    "Score": 12,
+    "HighScore": 25,
+    "TypingTime": 30.00079345703125,
+    "Accuracy": 76.08999633789063
 }
