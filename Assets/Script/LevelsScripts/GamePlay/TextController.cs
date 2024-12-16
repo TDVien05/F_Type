@@ -7,7 +7,7 @@ namespace Script.LevelsScripts.GamePlay
 {
     public class TextController : MonoBehaviour
     {
-        public float speed = 0.001f; // Toc do roi
+        public float speed = 0.1f; // Toc do roi
         private TextMeshPro textMesh; // Text cua prefabs
         private Vector3 startPosition;
         private List<TextMeshPro> listWords = new List<TextMeshPro>();
@@ -48,6 +48,7 @@ namespace Script.LevelsScripts.GamePlay
 
         private void Update()
         {
+            if (textMesh.text == "") return;
             if (!isDelaying)
             {
                 transform.Translate(Vector3.down * speed * Time.deltaTime);
@@ -73,7 +74,7 @@ namespace Script.LevelsScripts.GamePlay
         // Tao chu v mau ngau nhien
         public void GenerateWords(TextMeshPro textMesh)
         {
-            speed += 0.1f;
+            speed += 0.3f;
             textMesh.text = GenerateRandomWord();
             textMesh.color = GenerateRandomColor();
         }

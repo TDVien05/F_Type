@@ -424,7 +424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f74050c10b692b498a34a848df4bd2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -3
+  speed: -1
 --- !u!61 &246733207
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1164,6 +1164,7 @@ MonoBehaviour:
   cam: {fileID: 2132645878}
   scoreController: {fileID: 1627626185}
   timer: {fileID: 431312541}
+  pause: {fileID: 35401424}
 --- !u!50 &1004657601
 Rigidbody2D:
   serializedVersion: 4
@@ -1318,8 +1319,10 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+
 --- !u!82 &1004657606
 AudioSource:
+
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1758,7 +1761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f74050c10b692b498a34a848df4bd2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -3
+  speed: -1
 --- !u!61 &1747751473
 BoxCollider2D:
   m_ObjectHideFlags: 0

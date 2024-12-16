@@ -34,5 +34,7 @@ namespace Script.SceneScript
                 buttonImage.sprite = pauseIcon; 
             }
         }
+        
+        public bool IsPaused() {return isPaused;}
     }
 }

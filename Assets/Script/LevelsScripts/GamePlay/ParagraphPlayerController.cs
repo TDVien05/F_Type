@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Script.SceneScript;
 using UnityEngine;
 using TMPro;
 namespace Script.LevelsScripts.GamePlay
@@ -18,7 +19,7 @@ namespace Script.LevelsScripts.GamePlay
         private Accuracy acc;
         public AudioSource shootAudio;
         public AudioSource warningAudio;
-        
+
         
         // Start is called before the first frame update
         private IEnumerator Start()
@@ -41,6 +42,7 @@ namespace Script.LevelsScripts.GamePlay
         // Update is called once per frame
         void Update()
         {
+            if (pause.IsPaused()) return;
             if (Input.anyKeyDown)
             {
                 string inputKey = Input.inputString;
@@ -57,6 +59,13 @@ namespace Script.LevelsScripts.GamePlay
                 Debug.Log("Caps Lock key pressed, ignoring.");
                 return;
             }
+            // Ignore mouse button inputs
+            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
+            {
+                Debug.Log("Mouse input detected, ignoring.");
+                return;
+            }
+            
             if (inputKey == _nextChar)
             {
                 acc.SetCorrectChar(1);

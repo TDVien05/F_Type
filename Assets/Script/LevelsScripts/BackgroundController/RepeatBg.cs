@@ -7,7 +7,7 @@ public class RepeatBg : MonoBehaviour
     private BoxCollider2D coll;
     private Rigidbody2D rb;
     private float height;
-    public float speed = -3f;
+    public float speed = -1.25f;
     // Start is called before the first frame update
     void Start()
     {
