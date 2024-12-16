@@ -7,19 +7,31 @@ namespace Script.SceneScript
 {
     public class PauseButtom : MonoBehaviour
     {
-        private bool isPaused = false; // Default ispaused = false (game is continue)
+        public Sprite playIcon; // Play image
+        public Sprite pauseIcon; // Pause image
+
+        private bool isPaused = false; // Status (playing/ pausing)
+        private Image buttonImage; // Image of buttom
+
+        void Start()
+        {
+            buttonImage = GetComponent<Image>(); 
+            buttonImage.sprite = pauseIcon; // Default is pause image
+        }
 
         public void TogglePause()
         {
+            isPaused = !isPaused; 
+
             if (isPaused)
             {
-                Time.timeScale = 1f; // The game scene is work
-                isPaused = false;
+                Time.timeScale = 0; // Stop the scene
+                buttonImage.sprite = playIcon; 
             }
             else
             {
-                Time.timeScale = 0f; // isPaused = false then the game scene is stop;
-                isPaused = true;
+                Time.timeScale = 1; // Continue scene
+                buttonImage.sprite = pauseIcon; 
             }
         }
     }

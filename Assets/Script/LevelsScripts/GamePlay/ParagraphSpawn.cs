@@ -57,42 +57,94 @@ public class ParagraphSpawn : MonoBehaviour
     }
 
     // Random lay topic
-    string ChooseTopic(int number)
+     string ChooseTopic(int number)
     {
-        string topic = "food is essential for life providing energy " +
-                       "and nutrients to sustain the body it comes in " +
-                       "many forms from fruits vegetables grains and " +
-                       "meats to countless delicious dishes prepared " +
-                       "around the world food also brings people together " +
-                       "creating moments of joy and connection through shared " +
-                       "meals and diverse cultural traditions around the table";
+        string topic = "Food is an essential part " +
+                       "of life that provides the " +
+                       "energy and nutrients our bodies " +
+                       "need to function. It comes " +
+                       "in a variety of flavors, " +
+                       "textures, and cultural styles, making " +
+                       "it a source of joy " +
+                       "and creativity. From fresh fruits " +
+                       "and vegetables to hearty meals " +
+                       "and sweet desserts, food brings " +
+                       "people together, whether at family " +
+                       "dinners, celebrations, or casual outings. " +
+                       "It reflects the traditions and " +
+                       "history of a culture, with " +
+                       "dishes passed down through generations. " +
+                       "Beyond nutrition, food is also " +
+                       "an art, allowing chefs and " +
+                       "home cooks to express themselves " +
+                       "through flavors and presentation. Sharing " +
+                       "food creates bonds and unforgettable " +
+                       "memories. I love chicken breast!";
         switch (number)
         {
             case 1:
-                topic = "family is a group of people connected by love " +
-                        "and support it can include parents children " +
-                        "siblings and sometimes extended relatives like " +
-                        "grandparents aunts uncles and cousins families " +
-                        "come in many forms and sizes they provide a sense of " +
-                        "belonging care and guidance through different stages of " +
-                        "life creating lasting memories together";
+                topic = "Family is the foundation of " +
+                        "love, support, and understanding in " +
+                        "our lives. It consists of " +
+                        "the people we trust and " +
+                        "rely on, including parents, siblings, " +
+                        "and extended relatives. A family " +
+                        "provides emotional support during difficult " +
+                        "times and celebrates achievements together. " +
+                        "They teach us values, traditions, " +
+                        "and life lessons that shape " +
+                        "our identity. Spending quality time " +
+                        "with family strengthens relationships and " +
+                        "creates lasting memories. Family bonds " +
+                        "are built on trust, communication, " +
+                        "and care. No matter where " +
+                        "we are, the love of " +
+                        "family provides comfort and a " +
+                        "sense of belonging. It is " +
+                        "a source of strength that " +
+                        "lasts a lifetime. Love family.";
                 break;  
             case 2:
-                topic = "a dream is a series of thoughts or images that occur " +
-                        "in the mind during sleep it can also represent hopes " +
-                        "and aspirations for the future dreams inspire people " +
-                        "to achieve goals and overcome challenges they can be " +
-                        "personal or shared with others serving as a source of " +
-                        "motivation and creativity in life";
+                topic = "A dream is a series " +
+                        "of thoughts, images, or feelings " +
+                        "that occur in our minds " +
+                        "while we sleep. Dreams can " +
+                        "be mysterious, inspiring, or even " +
+                        "puzzling. They often reflect our " +
+                        "desires, fears, and emotions, offering " +
+                        "insights into our subconscious. Some " +
+                        "dreams are vivid and memorable, " +
+                        "while others fade quickly after " +
+                        "we wake up. People have always " +
+                        "been fascinated by dreams, leading " +
+                        "to interpretations and theories about " +
+                        "their meanings. Beyond sleep, a " +
+                        "dream can also mean our " +
+                        "aspirations and goals in life. " +
+                        "Pursuing our dreams requires determination, " +
+                        "creativity, and belief in ourselves, " +
+                        "turning imagination into reality. Good dream!";
                 break;
             case 3: 
-                topic = "patience is the ability to stay calm and endure " +
-                        "difficulties without frustration it helps " +
-                        "people handle challenges and wait for results " +
-                        "with understanding and resilience being patient " +
-                        "often leads to better decisions and stronger " +
-                        "relationships it is a valuable quality that brings " +
-                        "peace and allows time for growth learning and meaningful progress in life";
+                topic = "Being patient means staying calm " +
+                        "and understanding in situations that " +
+                        "require waiting, enduring challenges, or " +
+                        "facing difficulties. Patience is a " +
+                        "valuable quality that helps us " +
+                        "handle stress and maintain a " +
+                        "positive attitude. It allows us " +
+                        "to make thoughtful decisions instead " +
+                        "of reacting impulsively. Whether we " +
+                        "are dealing with people, learning " +
+                        "new skills, or overcoming obstacles, " +
+                        "patience plays a key role " +
+                        "in achieving success. It also " +
+                        "fosters better relationships, as it " +
+                        "shows respect and empathy for " +
+                        "others. Though it can be " +
+                        "hard to practice at times, patience " +
+                        "helps us grow stronger and " +
+                        "more resilient in life. Goodbye!";
                 break;
         }
         return topic;
