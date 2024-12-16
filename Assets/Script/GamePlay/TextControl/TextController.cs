@@ -74,7 +74,7 @@ namespace Script.LevelsScripts.GamePlay
         // Tao chu v mau ngau nhien
         public void GenerateWords(TextMeshPro textMesh)
         {
-            speed += 0.3f;
+            speed += 0.02f;
             textMesh.text = GenerateRandomWord();
             textMesh.color = GenerateRandomColor();
         }
