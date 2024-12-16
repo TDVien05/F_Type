@@ -19,6 +19,7 @@ namespace Script.LevelsScripts.GamePlay
         private Accuracy acc;
         public AudioSource shootAudio;
         public AudioSource warningAudio;
+        public PauseButtom pause;
 
         
         // Start is called before the first frame update
