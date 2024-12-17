@@ -74,7 +74,7 @@ public class SummaryScore : MonoBehaviour
             case "60s":
                 if (typingTime > 60)
                 {
-                    TypingText.text = "30";
+                    TypingText.text = "60";
                 }
                 else
                 {
