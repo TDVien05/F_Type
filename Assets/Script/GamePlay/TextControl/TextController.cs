@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-namespace Script.LevelsScripts.GamePlay
+namespace Script.GamePlay.TextControl
 {
     public class TextController : MonoBehaviour
     {
@@ -74,7 +74,7 @@ namespace Script.LevelsScripts.GamePlay
         // Tao chu v mau ngau nhien
         public void GenerateWords(TextMeshPro textMesh)
         {
-            speed += 0.02f;
+            speed += 0.2f;
             textMesh.text = GenerateRandomWord();
             textMesh.color = GenerateRandomColor();
         }

@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7094790419578242388}
   - component: {fileID: 9063984967398005150}
-  - component: {fileID: 953526589339384477}
-  - component: {fileID: 3350566217765857691}
+  - component: {fileID: 5173995695546854699}
+  - component: {fileID: 6793613295017658615}
   - component: {fileID: 8728162451347023011}
   - component: {fileID: 1246870857290588222}
   - component: {fileID: 7838972036980228076}
@@ -84,7 +84,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &953526589339384477
+--- !u!114 &5173995695546854699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4984945235144087489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a817fdccef605a4abe1eee337027a93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.5
+  delayTime: 0.1
+--- !u!114 &6793613295017658615
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,21 +111,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 8728162451347023011}
-  textController: {fileID: 3350566217765857691}
---- !u!114 &3350566217765857691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4984945235144087489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a817fdccef605a4abe1eee337027a93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  delayTime: 0
 --- !u!114 &8728162451347023011
 MonoBehaviour:
   m_ObjectHideFlags: 0

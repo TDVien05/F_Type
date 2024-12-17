@@ -1,15 +1,13 @@
 using System;
-using Script.LevelsScripts.GamePlay;
 using UnityEngine;
 using TMPro;
-namespace Script.LevelsScripts
+namespace Script.GamePlay.PrefapController
 {
     public class ObstacleController : MonoBehaviour
     {
         private TextMeshPro _textMesh; // text object
         public TMP_Text text; // prefab text
         private bool _isTyping; 
-        public TextController textController;
         
         private AudioSource audioSource;
         private Timer timer;
