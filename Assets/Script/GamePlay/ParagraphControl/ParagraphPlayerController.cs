@@ -1,16 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using Script.SceneScript;
-using UnityEngine;
 using TMPro;
-namespace Script.LevelsScripts.GamePlay
+using UnityEngine;
+using UnityEngine.Serialization;
+
+namespace Script.GamePlay.ParagraphControl
 {
     public class ParagraphPlayerController : MonoBehaviour
     {
         public GameObject player;
         public GameObject bullet;
         public Transform firePoint;
-        public  ParagraphSpawn _paragraphSpawn;
+        public  ParagraphSpawn paragraphSpawn;
         public  Timer timer;
         private string _paragraphWord; 
         private string _nextChar;
@@ -26,7 +28,7 @@ namespace Script.LevelsScripts.GamePlay
         private IEnumerator Start()
         {
             yield return new WaitForSeconds(0.1f); // wait for text generation
-            _obstalceList = _paragraphSpawn.GetListWords();
+            _obstalceList = paragraphSpawn.GetListWords();
             shootAudio.volume = 0.1f;
             warningAudio.volume = 0.5f;
             acc = GetComponent<Accuracy>();
@@ -113,9 +115,9 @@ namespace Script.LevelsScripts.GamePlay
                 if (index >= _obstalceList.Count)
                 {
                     Debug.Log("End of paragraph");
-                    _paragraphSpawn.SetWordsToPrefabs();
+                    paragraphSpawn.SetWordsToPrefabs();
                     // Check if no more paragraphs can be generated
-                    if (_paragraphSpawn.IsEnd())
+                    if (paragraphSpawn.IsEnd())
                     {
                         Debug.Log("No more words in paragraph.");
                         timer.End();
@@ -138,9 +140,9 @@ namespace Script.LevelsScripts.GamePlay
 
         void GetNewListWord()
         {
-            _paragraphSpawn.ResetIndexPosition();
-            _paragraphSpawn.SpawnAllParagraphs();
-            _obstalceList = _paragraphSpawn.GetListWords();
+            paragraphSpawn.ResetIndexPosition();
+            paragraphSpawn.SpawnAllParagraphs();
+            _obstalceList = paragraphSpawn.GetListWords();
         }
 
 

@@ -1207,7 +1207,7 @@ MonoBehaviour:
   player: {fileID: 1004657595}
   bullet: {fileID: 5401640107220391650, guid: 04bc6943030dc4446829708b57abc839, type: 3}
   firePoint: {fileID: 2091070562}
-  _paragraphSpawn: {fileID: 1465877367}
+  paragraphSpawn: {fileID: 1465877367}
   timer: {fileID: 431312541}
   shootAudio: {fileID: 1004657606}
   warningAudio: {fileID: 1004657605}

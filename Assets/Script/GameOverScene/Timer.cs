@@ -5,7 +5,8 @@
     using System.IO;
     using System;
     using GameLogic;
-    using Script.LevelsScripts.GamePlay;
+    using Script.GamePlay.ParagraphControl;
+    using Script.GamePlay.TextControl;
 
     public class Timer : MonoBehaviour
     {

@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Script.GamePlay.PrefapController;
 using Script.SceneScript;
-using UnityEngine;
 using TMPro;
-namespace Script.LevelsScripts.GamePlay
+using UnityEngine;
+
+namespace Script.GamePlay.TextControl
 {
     public class PlayerController : MonoBehaviour
     {
@@ -100,7 +102,7 @@ namespace Script.LevelsScripts.GamePlay
         ///     - In this case, it will search through the _obstacleMap dictionary for desired key 
         /// </summary>
         /// <param name="key"> input key from player </param>
-        void CheckInputKey(string key)
+        private void CheckInputKey(string key)
         {
             if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) ||
                 Input.GetKeyDown(KeyCode.CapsLock) || Input.GetMouseButtonDown(2))

@@ -24,7 +24,7 @@ public class ParagraphController : MonoBehaviour
 
     void MovingTextDown()
     {
-        if(transform.position.y > 7)
+        if(transform.position.y > 5)
             transform.Translate(Vector3.down * fallSpeed * Time.deltaTime);
     }
     
