@@ -13,7 +13,7 @@ namespace Script.GamePlay.ParagraphControl
         private int indexOfPositions = 0;
         private float[] positions = new float[5]
         {
-            -7.45f, -3.96f, -0.58f, 3.33f, 6.75f
+            -6.45f, -3.96f, -0.58f, 3.33f, 6.75f
         };
         private string[] wordsList;
         private int indexOfWordsList = 0;

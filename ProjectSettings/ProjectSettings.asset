@@ -706,11 +706,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 2c574f76-2896-4a37-b830-3cf2fc627803
+  cloudProjectId: 0c3824ef-7ab3-4bdd-b7f4-925418137e7e
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: F-Type
-  organizationId: quangonunity
+  organizationId: truongdoanvien
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

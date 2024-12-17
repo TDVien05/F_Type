@@ -32,7 +32,21 @@
             _currentTime = 0; 
             _isRunning = true;
             spawnBase = GameObject.Find("Base");
-            _filePath = "DB\\PlayerSetting.txt";
+            string directoryPath = Path.Combine(Application.persistentDataPath, "DB");
+            _filePath = Path.Combine(directoryPath, "PlayerSetting.txt");
+
+            // Create folder if does not exist
+            if (!Directory.Exists(directoryPath))
+            {
+                Directory.CreateDirectory(directoryPath);
+                Debug.Log("Created directory: " + directoryPath);
+            }
+            // Create file if does not exist
+            if (!File.Exists(_filePath))
+            {
+                File.Create(_filePath).Close(); // Create empty file
+                Debug.Log("File created: " + _filePath);
+            }
             LoadSceneSetting();
         }
 

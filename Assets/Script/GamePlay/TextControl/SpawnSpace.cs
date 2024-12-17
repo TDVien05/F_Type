@@ -57,12 +57,12 @@ namespace Script.GamePlay.TextControl
 
         public float RanDomX()
         {
-            float randomX = Random.Range(-8f, 8);
+            float randomX = Random.Range(-7f, 7);
             do
             {
                 if (checkSpawnSpaceX.Contains(randomX))
                 {
-                    randomX = Random.Range(-8f, 8);
+                    randomX = Random.Range(-7f, 7);
                 } else
                 {
                     checkSpawnSpaceX.Add(randomX);

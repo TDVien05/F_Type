@@ -42,7 +42,7 @@ namespace Script.GamePlay.TextControl
         {
             yield return new WaitForSeconds(0.1f); // wait for text generation
             rb = GetComponent<Rigidbody2D>();
-            shootAudio.volume = 0.1f;
+            shootAudio.volume = 0.3f;
             warningAudio.volume = 0.5f;
             acc = GetComponent<Accuracy>();
             _isLocalText = false; // set to global scope first
