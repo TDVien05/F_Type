@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Serialization;
+
 namespace Script.GamePlay.PrefapController
 {
     public class ObstacleController : MonoBehaviour
@@ -13,6 +15,8 @@ namespace Script.GamePlay.PrefapController
         private Timer timer;
         private Camera cam;
         
+        private float knockbackForce = 4f;
+        private Rigidbody2D _rb;
         private void Start()
         {
             audioSource = GetComponent<AudioSource>();
@@ -22,6 +26,7 @@ namespace Script.GamePlay.PrefapController
             
             cam = FindObjectOfType<Camera>();
             timer = FindObjectOfType<Timer>();
+            _rb = GetComponent<Rigidbody2D>();
         }
 
         void Update()
@@ -70,9 +75,17 @@ namespace Script.GamePlay.PrefapController
                 audioSource.Play();
                 Debug.Log("Collided with bullet and is typing.");
                 Destroy(other.gameObject);
+                KnockBack(other); // knock back the obstacle
             }
         }
-        
+
+        private void KnockBack(Collider2D other)
+        {
+            Vector2 direction = (transform.position-other.transform.position  ).normalized;
+            Vector2 knockback = direction * knockbackForce;
+            
+            _rb.AddForce(knockback, ForceMode2D.Impulse);
+        }
         bool IsObjectAtbottom(Transform obj)
         {
             // Convert the object's position to viewport coordinates
