@@ -25,7 +25,6 @@ public class HelpWindowController : MonoBehaviour
             playButtom.SetActive(false);
             levelButtom.SetActive(false);
             helpButtom.SetActive(false);
-            exitButtom.SetActive(false);
             title.SetActive(false);
         }
     }
@@ -41,7 +40,6 @@ public class HelpWindowController : MonoBehaviour
             playButtom.SetActive(true);
             levelButtom.SetActive(true);
             helpButtom.SetActive(true);
-            exitButtom.SetActive(true);
             title.SetActive(true);
         }
     }

@@ -13,7 +13,7 @@ namespace Script.GamePlay.ParagraphControl
         private int indexOfPositions = 0;
         private float[] positions = new float[5]
         {
-            -6.45f, -3.96f, -0.58f, 3.33f, 6.75f
+            -6.45f, -3.33f, 0f, 3.33f, 6.75f
         };
         private string[] wordsList;
         private int indexOfWordsList = 0;
@@ -85,24 +85,24 @@ namespace Script.GamePlay.ParagraphControl
             {
                 case 1:
                     topic = "Family is the foundation of " +
-                            "love, support, and understanding in " +
+                            "love, support, and insight in " +
                             "our lives. It consists of " +
                             "the people we trust and " +
                             "rely on, including parents, siblings, " +
                             "and extended relatives. A family " +
                             "provides emotional support during difficult " +
-                            "times and celebrates achievements together. " +
+                            "times and hails goals together. " +
                             "They teach us values, traditions, " +
                             "and life lessons that shape " +
                             "our identity. Spending quality time " +
-                            "with family strengthens relationships and " +
+                            "with family bolsters bonds and " +
                             "creates lasting memories. Family bonds " +
-                            "are built on trust, communication, " +
+                            "are built on trust, love, " +
                             "and care. No matter where " +
                             "we are, the love of " +
                             "family provides comfort and a " +
                             "sense of belonging. It is " +
-                            "a source of strength that " +
+                            "a source of power that " +
                             "lasts a lifetime. Love family.";
                     break;  
                 case 2:
@@ -128,19 +128,19 @@ namespace Script.GamePlay.ParagraphControl
                     break;
                 case 3: 
                     topic = "Being patient means staying calm " +
-                            "and understanding in situations that " +
-                            "require waiting, enduring challenges, or " +
-                            "facing difficulties. Patience is a " +
+                            "and insight in situations that " +
+                            "require waiting, durable issues, or " +
+                            "facing obstacles. Patience is a " +
                             "valuable quality that helps us " +
                             "handle stress and maintain a " +
                             "positive attitude. It allows us " +
-                            "to make thoughtful decisions instead " +
-                            "of reacting impulsively. Whether we " +
+                            "to make kind choices instead " +
+                            "of reacting rashly. Whether we " +
                             "are dealing with people, learning " +
-                            "new skills, or overcoming obstacles, " +
+                            "new skills, or beating obstacles, " +
                             "patience plays a key role " +
-                            "in achieving success. It also " +
-                            "fosters better relationships, as it " +
+                            "in gaining success. It also " +
+                            "fosters better connections, as it " +
                             "shows respect and empathy for " +
                             "others. Though it can be " +
                             "hard to practice at times, patience " +
