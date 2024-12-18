@@ -20,7 +20,8 @@ public class ChangeBackground : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        filePath = "DB\\PlayerSetting.txt";
+        string directoryPath = Path.Combine(Application.persistentDataPath, "DB");
+        filePath = Path.Combine(directoryPath, "PlayerSetting.txt");
         Bg1Render = bg1.GetComponent<SpriteRenderer>();
         Bg2Render = bg2.GetComponent<SpriteRenderer>();
         ChangeBg();

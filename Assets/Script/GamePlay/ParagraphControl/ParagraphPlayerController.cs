@@ -29,7 +29,7 @@ namespace Script.GamePlay.ParagraphControl
         {
             yield return new WaitForSeconds(0.1f); // wait for text generation
             _obstalceList = paragraphSpawn.GetListWords();
-            shootAudio.volume = 0.1f;
+            shootAudio.volume = 0.3f;
             warningAudio.volume = 0.5f;
             acc = GetComponent<Accuracy>();
             index = 0;

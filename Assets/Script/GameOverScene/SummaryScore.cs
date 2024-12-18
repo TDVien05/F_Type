@@ -20,7 +20,8 @@ public class SummaryScore : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        filePath = "DB\\PlayerSetting.txt";
+        string directoryPath = Path.Combine(Application.persistentDataPath, "DB");
+        filePath = Path.Combine(directoryPath, "PlayerSetting.txt");
         settings = File.ReadAllText(filePath);
         if (settings.Length > 0)
         {

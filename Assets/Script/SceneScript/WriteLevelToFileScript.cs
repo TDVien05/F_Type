@@ -13,7 +13,21 @@ public class WriteLevelToFileScript : MonoBehaviour
     private Player playerSetting;
     public void SaveButtonTextToFile()
     {
-        filePath = "DB\\PlayerSetting.txt";
+        string directoryPath = Path.Combine(Application.persistentDataPath, "DB");
+        string filePath = Path.Combine(directoryPath, "PlayerSetting.txt");
+
+        // Create folder if does not exist
+        if (!Directory.Exists(directoryPath))
+        {
+            Directory.CreateDirectory(directoryPath);
+            Debug.Log("Created directory: " + directoryPath);
+        }
+        // Create file if does not exist
+        if (!File.Exists(filePath))
+        {
+            File.Create(filePath).Close(); // Create empty file
+            Debug.Log("File created: " + filePath);
+        }
 
         if (button != null)
         {
