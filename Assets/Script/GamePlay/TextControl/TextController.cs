@@ -7,7 +7,7 @@ namespace Script.GamePlay.TextControl
 {
     public class TextController : MonoBehaviour
     {
-        public float speed = 0.1f; // Toc do roi
+        public float speed = 0.3f; // Toc do roi
         private TextMeshPro textMesh; // Text cua prefabs
         private Vector3 startPosition;
         private List<TextMeshPro> listWords = new List<TextMeshPro>();
@@ -74,7 +74,7 @@ namespace Script.GamePlay.TextControl
         // Tao chu v mau ngau nhien
         public void GenerateWords(TextMeshPro textMesh)
         {
-            speed += 0.2f;
+            speed += 0.3f;
             textMesh.text = GenerateRandomWord();
             textMesh.color = GenerateRandomColor();
         }
